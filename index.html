@@ -6,36 +6,40 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://grantopsconsulting.com/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio demo concept — a classic premium Glasgow barbershop with a Nearcut booking integration.">
+  <meta name="description" content="Portfolio demo concept — a classic premium Glasgow barbershop with live Nearcut booking.">
   <meta name="theme-color" content="#1A1410">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ECE5D7'/%3E%3Crect x='12' y='4' width='8' height='24' fill='%23ECE5D7' stroke='%231A1410' stroke-width='0.6'/%3E%3Cpath d='M12 8 L20 5 L20 9 L12 12 Z M12 14 L20 11 L20 15 L12 18 Z M12 20 L20 17 L20 21 L12 24 Z' fill='%236B1F1A'/%3E%3Cellipse cx='16' cy='4' rx='5' ry='1.5' fill='%23B8956C'/%3E%3Cellipse cx='16' cy='28' rx='5' ry='1.5' fill='%23B8956C'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ECE5D7'/%3E%3Cellipse cx='16' cy='4' rx='6' ry='2' fill='%23999'/%3E%3Crect x='10' y='4' width='12' height='4' fill='%23BBB'/%3E%3Crect x='11' y='8' width='10' height='16' fill='white' stroke='%23888' stroke-width='0.4'/%3E%3Cpath d='M11 11 L21 8 L21 11 L11 14 Z M11 16 L21 13 L21 16 L11 19 Z M11 21 L21 18 L21 21 L11 24 Z' fill='%236B1F1A'/%3E%3Crect x='10' y='24' width='12' height='4' fill='%23BBB'/%3E%3Cellipse cx='16' cy='28' rx='6' ry='2' fill='%23999'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
 :root {
-  /* Cream / parchment — the walls */
+  /* Cream / parchment */
   --paper:        #ECE5D7;
   --paper-2:      #E0D7C2;
   --paper-3:      #C9BC9F;
 
-  /* Cordovan — the chesterfield leather */
+  /* Cordovan — chesterfield leather */
   --cordovan:     #6B1F1A;
   --cordovan-2:   #4A1212;
   --cordovan-bright:#8C2D26;
-  --cordovan-glow: rgba(107, 31, 26, 0.25);
 
-  /* Walnut — dark wood cabinetry */
+  /* Walnut — dark wood */
   --walnut:       #3A2415;
   --walnut-2:     #281810;
 
-  /* Brass — fittings, plates, edges */
+  /* Brass */
   --brass:        #B8956C;
   --brass-bright: #D4B689;
   --brass-deep:   #8B6E4E;
-  --brass-faint:  rgba(184, 149, 108, 0.18);
 
-  /* Ink — warm black */
+  /* Chrome (NEW for v4) */
+  --chrome:       #D9D9D9;
+  --chrome-bright:#F2F2F2;
+  --chrome-mid:   #B0B0B0;
+  --chrome-deep:  #6F6F6F;
+
   --ink:          #1A1410;
   --ink-2:        #3A2E22;
   --ink-3:        #6A5A48;
@@ -45,7 +49,11 @@
   --on-dark-2:    #C9BC9F;
   --on-dark-3:    #8B7E69;
 
-  --display: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  /* Type system — v4 commits to a heavier, higher-contrast vintage-shop-sign serif (DM Serif Display)
+     instead of the v3 humanist Cormorant Garamond, which read too close to Drygate's editorial weight.
+     Cormorant survives only as italic accent for decorative phrases. */
+  --display: 'DM Serif Display', 'Times New Roman', Georgia, serif;
+  --accent:  'Cormorant Garamond', Georgia, serif;
   --body:    'Manrope', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
   --mono:    'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
 
@@ -74,21 +82,25 @@ body {
 
 img, svg { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
-
 ::selection { background: var(--cordovan); color: var(--paper); }
 
 /* ──────────── TYPE ──────────── */
 .serif, h1, h2, h3 {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.012em;
   line-height: 1.05;
 }
-h1 { font-size: clamp(48px, 8vw, 124px); }
+h1 { font-size: clamp(48px, 7.5vw, 116px); }
 h2 { font-size: clamp(36px, 5.4vw, 84px); }
 h3 { font-size: clamp(22px, 2.6vw, 32px); }
 
-.italic { font-style: italic; }
+.italic-accent {
+  font-family: var(--accent);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+}
 
 .label {
   font-family: var(--mono);
@@ -96,10 +108,7 @@ h3 { font-size: clamp(22px, 2.6vw, 32px); }
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--brass);
 }
-.label-ink { color: var(--ink-3); }
-.label-cream { color: var(--brass-bright); }
 
 .lede {
   font-family: var(--body);
@@ -116,280 +125,388 @@ h3 { font-size: clamp(22px, 2.6vw, 32px); }
   padding: 0 var(--gutter);
 }
 
-/* ──────────── TOPBAR ──────────── */
+/* ──────────── STATUS BAR (NEW — top thin strip) ──────────── */
+.status-bar {
+  background: var(--ink);
+  color: var(--on-dark-2);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 8px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--cordovan);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 51;
+}
+.status-bar .left { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.status-bar .live-dot {
+  width: 7px; height: 7px;
+  background: #6FCF97;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(111, 207, 151, 0.7);
+  animation: status-pulse 2.2s var(--ease) infinite;
+}
+@keyframes status-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(111, 207, 151, 0.7); }
+  50%      { box-shadow: 0 0 0 7px rgba(111, 207, 151, 0); }
+}
+.status-bar .right { color: var(--brass); }
+.status-bar .sep { color: var(--ink-3); }
+@media (max-width: 720px) {
+  .status-bar { font-size: 9px; letter-spacing: 0.14em; padding: 7px 16px; }
+  .status-bar .right { display: none; }
+}
+
+/* ──────────── TOPBAR (different architecture from Drygate v1) ──────────── */
 .topbar {
-  position: fixed; top: 0; left: 0; right: 0;
+  position: fixed;
+  top: 32px; left: 0; right: 0;
   z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 18px var(--gutter);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: clamp(20px, 4vw, 56px);
+  align-items: center;
+  padding: 16px var(--gutter);
   background: rgba(236, 229, 215, 0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--paper-3);
-  transition: padding 0.4s ease, background 0.4s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--brass);
+  transition: padding 0.4s ease, background 0.4s ease, top 0.4s ease;
 }
 .topbar.lit {
-  padding: 12px var(--gutter);
+  padding: 10px var(--gutter);
   background: rgba(236, 229, 215, 0.98);
-  border-bottom: 1px solid var(--brass);
 }
-.wordmark {
-  display: inline-flex; align-items: center; gap: 12px;
+@media (max-width: 720px) {
+  .topbar { top: 28px; }
+}
+
+.topbar .brand {
+  display: inline-flex; align-items: center; gap: 14px;
   color: var(--ink);
 }
-.wordmark .crest {
-  width: 36px; height: 36px;
-  flex-shrink: 0;
-  transition: width 0.4s ease, height 0.4s ease;
+
+.topbar .nav-links {
+  display: flex; gap: 28px;
+  justify-content: center;
 }
-.topbar.lit .wordmark .crest { width: 30px; height: 30px; }
-.wordmark .text { display: flex; flex-direction: column; line-height: 1; }
-.wordmark .text .name {
-  font-family: var(--display); font-weight: 600;
-  font-size: 22px; letter-spacing: 0.02em;
-  color: var(--ink);
+.topbar .nav-links a {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s;
 }
-.wordmark .text .sub {
-  font-family: var(--mono); font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
-  color: var(--cordovan);
-  margin-top: 5px;
+.topbar .nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 1px;
+  background: var(--cordovan);
+  transition: width 0.3s var(--ease);
 }
-.topbar.lit .wordmark .text .name { font-size: 19px; }
+.topbar .nav-links a:hover { color: var(--cordovan); }
+.topbar .nav-links a:hover::after { width: 100%; }
+@media (max-width: 1100px) { .topbar .nav-links { display: none; } }
 
 .topbar-cta {
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--ink);
-  border: 1px solid var(--ink);
-  padding: 11px 18px;
-  transition: background 0.3s, color 0.3s, border-color 0.3s;
-  position: relative;
-  white-space: nowrap;
-}
-.topbar-cta:hover {
-  background: var(--cordovan);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
   color: var(--paper);
-  border-color: var(--cordovan);
+  background: var(--cordovan);
+  border: 1px solid var(--cordovan);
+  padding: 12px 22px 12px 22px;
+  transition: background 0.3s, transform 0.3s;
+  white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 10px;
 }
+.topbar-cta:hover { background: var(--cordovan-2); transform: translateY(-1px); }
 
-@media (max-width: 640px) {
-  .topbar { padding: 12px 18px; }
-  .wordmark .text .name { font-size: 18px; }
+@media (max-width: 720px) {
+  .topbar { grid-template-columns: auto auto; gap: 12px; padding: 10px 18px; }
   .topbar-cta { padding: 9px 12px; font-size: 10px; letter-spacing: 0.18em; }
 }
 
-/* ──────────── HERO ──────────── */
-.hero {
-  position: relative;
-  padding: 120px var(--gutter) 60px;
-  background: var(--paper);
-  overflow: hidden;
-  min-height: 100svh;
-  display: flex; flex-direction: column; justify-content: center;
-}
-/* Subtle warm gradient — mimics the cream wall under sconce light */
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(184, 149, 108, 0.18) 0%, transparent 55%),
-    radial-gradient(ellipse at 50% 100%, rgba(58, 36, 21, 0.06) 0%, transparent 50%);
-  pointer-events: none;
-}
+/* ──────────── CHROME-CAPPED BARBER POLE ──────────── */
+/* Reused at multiple sizes: small in the topbar (--pole-w: 24px), medium in hero overlay (40px) */
 
-.hero-inner {
+.pole {
+  --pole-w: 28px;
+  --cap-h: 8px;
+  --cyl-h: 56px;
+  display: inline-block;
+  width: var(--pole-w);
+  position: relative;
+  flex-shrink: 0;
+}
+.pole-cap {
+  display: block;
+  width: 100%;
+  height: var(--cap-h);
+  background:
+    radial-gradient(ellipse at 30% 30%, var(--chrome-bright) 0%, var(--chrome) 35%, var(--chrome-mid) 60%, var(--chrome-deep) 100%);
+  border-radius: 50% 50% 35% 35% / 80% 80% 20% 20%;
   position: relative;
   z-index: 2;
-  max-width: 1100px;
-  margin: 0 auto;
-  width: 100%;
-  text-align: center;
-  display: flex; flex-direction: column; align-items: center;
 }
-
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 14px;
-  margin-bottom: 28px;
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
-  color: var(--ink-3);
+.pole-cap.bottom {
+  border-radius: 35% 35% 50% 50% / 20% 20% 80% 80%;
 }
-.hero-eyebrow .rule {
-  display: inline-block;
-  width: 40px; height: 1px;
-  background: var(--brass);
-}
-.hero-eyebrow .star { color: var(--cordovan); font-family: var(--display); font-size: 14px; line-height: 1; }
-
-/* Hero illustration — the centerpiece SVG of the shop interior */
-.hero-art {
-  width: clamp(280px, 42vw, 520px);
-  height: auto;
-  margin: 6px 0 28px;
-  filter: drop-shadow(0 18px 30px rgba(58, 36, 21, 0.18));
-}
-
-/* Wordmark hero — Trongate Barber Co. as a vintage poster nameplate */
-.hero-name {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(54px, 9vw, 132px);
-  line-height: 0.92;
-  letter-spacing: -0.018em;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-.hero-name .small {
-  display: block;
-  font-size: 0.42em;
-  letter-spacing: 0.42em;
-  font-weight: 500;
-  color: var(--cordovan);
-  margin-top: 0.2em;
-  text-transform: uppercase;
-}
-.hero-name em { font-style: italic; color: var(--cordovan); }
-
-.hero-tagline {
-  font-family: var(--display);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(18px, 2vw, 24px);
-  line-height: 1.45;
-  color: var(--ink-2);
-  margin: 16px 0 32px;
-  max-width: 38ch;
-}
-
-.hero-meta {
-  display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 8px 24px;
-  margin-bottom: 36px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.hero-meta .sep { color: var(--brass); }
-
-.hero-cta {
-  display: inline-flex; align-items: center; gap: 14px;
-  padding: 18px 36px 18px 28px;
-  background: var(--cordovan);
-  color: var(--paper);
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  border: 1px solid var(--cordovan);
-  position: relative;
-  transition: background 0.4s var(--ease), color 0.4s var(--ease), transform 0.3s var(--ease);
-  /* Brass-plate framing */
-  box-shadow: inset 0 0 0 1px rgba(212, 182, 137, 0.4);
-}
-.hero-cta:hover {
-  background: var(--cordovan-2);
-  transform: translateY(-2px);
-}
-.hero-cta .arrow {
-  width: 18px; height: 1px;
-  background: var(--paper);
-  position: relative;
-  transition: width 0.3s var(--ease);
-}
-.hero-cta .arrow::after {
+.pole-cap::before {
+  /* Highlight band — chrome's bright reflection */
   content: '';
   position: absolute;
-  right: 0; top: -3px;
-  width: 7px; height: 7px;
-  border-top: 1px solid var(--paper);
-  border-right: 1px solid var(--paper);
-  transform: rotate(45deg);
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0) 60%);
+  border-radius: inherit;
+  pointer-events: none;
 }
-.hero-cta:hover .arrow { width: 28px; }
-
-/* Animated entry */
-.hero-eyebrow, .hero-art, .hero-name, .hero-tagline, .hero-meta, .hero-cta {
-  opacity: 0;
-  transform: translateY(14px);
-  animation: fade-up 0.9s var(--ease) forwards;
-}
-.hero-eyebrow { animation-delay: 0.05s; }
-.hero-art { animation-delay: 0.18s; transform: translateY(20px); }
-.hero-name { animation-delay: 0.32s; }
-.hero-tagline { animation-delay: 0.46s; }
-.hero-meta { animation-delay: 0.58s; }
-.hero-cta { animation-delay: 0.7s; }
-@keyframes fade-up {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ──────────── BARBER POLE ──────────── */
-/* Standalone pole element used in hero illustration AND as accent piece */
-.pole {
-  display: inline-block;
-  position: relative;
-  width: 28px;
-  vertical-align: middle;
-}
-.pole-cap, .pole-base {
+.pole-cyl {
+  display: block;
   width: 100%;
-  height: 8px;
-  background: linear-gradient(180deg, var(--brass-bright) 0%, var(--brass) 50%, var(--brass-deep) 100%);
-  border: 0.5px solid var(--brass-deep);
-}
-.pole-cap { border-radius: 6px 6px 0 0; }
-.pole-base { border-radius: 0 0 6px 6px; }
-.pole-cylinder {
-  height: 100px;
+  height: var(--cyl-h);
   background: var(--paper);
-  border-left: 1px solid var(--brass-deep);
-  border-right: 1px solid var(--brass-deep);
+  border-left: 1px solid var(--chrome-deep);
+  border-right: 1px solid var(--chrome-deep);
   position: relative;
   overflow: hidden;
+  margin-top: -1px;
+  /* Glass-curve shading via inset gradient */
+  box-shadow: inset 4px 0 6px -4px rgba(0,0,0,0.12), inset -4px 0 6px -4px rgba(0,0,0,0.12);
 }
-.pole-cylinder::before {
+.pole-cyl::before {
+  /* The spinning stripes — diagonal red/white/blue */
   content: '';
   position: absolute;
   top: -50%; left: -10%; right: -10%; bottom: -50%;
   background: repeating-linear-gradient(
     -65deg,
-    var(--paper) 0px,
-    var(--paper) 8px,
-    var(--cordovan) 8px,
-    var(--cordovan) 16px,
-    var(--paper) 16px,
-    var(--paper) 24px,
-    #1F4A6B 24px,
-    #1F4A6B 32px
+    #ECE5D7 0px,
+    #ECE5D7 6px,
+    #C8211C 6px,
+    #C8211C 12px,
+    #ECE5D7 12px,
+    #ECE5D7 18px,
+    #1F4A6B 18px,
+    #1F4A6B 24px
   );
-  animation: pole-spin 3.2s linear infinite;
+  animation: pole-spin 3s linear infinite;
+}
+.pole-cyl::after {
+  /* Glass shine — vertical white sliver on the left edge */
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 2px; width: 2px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
 }
 @keyframes pole-spin {
   from { transform: translateY(0); }
-  to   { transform: translateY(64px); }
+  to   { transform: translateY(48px); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pole-cylinder::before { animation: none; }
+  .pole-cyl::before { animation: none; }
 }
 
-/* Hero pole positioning — flanks the centerpiece */
+/* Topbar variant — small */
+.pole-sm {
+  --pole-w: 22px;
+  --cap-h: 6px;
+  --cyl-h: 38px;
+}
+.topbar.lit .pole-sm { --cyl-h: 32px; }
+
+/* Wordmark text */
+.wordmark-text {
+  display: flex; flex-direction: column; line-height: 1;
+}
+.wordmark-text .name {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 21px;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.wordmark-text .sub {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cordovan);
+  margin-top: 5px;
+}
+.topbar.lit .wordmark-text .name { font-size: 18px; }
+@media (max-width: 720px) {
+  .wordmark-text .name { font-size: 17px; }
+  .wordmark-text .sub { font-size: 8.5px; letter-spacing: 0.28em; }
+}
+
+/* ──────────── HERO (full-bleed photo backdrop) ──────────── */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding: 160px var(--gutter) 80px;
+  display: flex; flex-direction: column; justify-content: center;
+  overflow: hidden;
+  color: var(--paper);
+}
+.hero-photo {
+  position: absolute; inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=2000&fit=crop&q=80&auto=format");
+  background-size: cover;
+  background-position: center;
+  background-color: var(--ink);
+  filter: saturate(0.92);
+  z-index: 0;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(26, 20, 16, 0.55) 0%, rgba(26, 20, 16, 0.32) 28%, rgba(26, 20, 16, 0.5) 60%, rgba(26, 20, 16, 0.85) 100%),
+    radial-gradient(ellipse at 30% 50%, rgba(107, 31, 26, 0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-grain {
+  position: absolute; inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 3;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  padding-top: 2vh;
+}
+
+/* Hero pole — medium, sits above the headline */
 .hero-pole {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
+  --pole-w: 44px;
+  --cap-h: 12px;
+  --cyl-h: 130px;
+  margin-bottom: 32px;
+  filter: drop-shadow(0 16px 24px rgba(0,0,0,0.5));
 }
-.hero-pole-l { left: clamp(20px, 8vw, 120px); }
-.hero-pole-r { right: clamp(20px, 8vw, 120px); }
-.hero-pole .pole-cylinder { height: 220px; }
-.hero-pole .pole-cylinder::before { animation-duration: 4s; }
-@media (max-width: 900px) {
-  .hero-pole { display: none; }
+@media (max-width: 720px) {
+  .hero-pole { --pole-w: 36px; --cap-h: 10px; --cyl-h: 100px; margin-bottom: 24px; }
 }
+
+.hero-name {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(54px, 8.5vw, 124px);
+  line-height: 0.94;
+  letter-spacing: -0.018em;
+  color: var(--paper);
+  margin-bottom: 8px;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.4);
+}
+.hero-name em {
+  font-style: italic;
+  color: var(--brass-bright);
+  font-family: var(--display);
+}
+.hero-name .small {
+  display: block;
+  font-family: var(--accent);
+  font-style: italic;
+  font-size: 0.34em;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  color: var(--brass-bright);
+  margin-top: 0.45em;
+  text-transform: none;
+}
+.hero-tagline {
+  font-family: var(--accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(18px, 2vw, 26px);
+  line-height: 1.5;
+  color: var(--on-dark-2);
+  margin: 18px 0 36px;
+  max-width: 36ch;
+}
+.hero-meta {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 12px 28px;
+  margin-bottom: 36px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--on-dark-2);
+}
+.hero-meta .stars { color: var(--brass-bright); letter-spacing: 0.12em; }
+.hero-meta .sep { color: var(--brass); }
+
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 16px;
+  padding: 18px 36px 18px 32px;
+  background: var(--cordovan);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  border: 1px solid var(--brass);
+  position: relative;
+  transition: background 0.4s var(--ease), transform 0.3s var(--ease);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(212, 182, 137, 0.4);
+}
+.hero-cta:hover { background: var(--cordovan-2); transform: translateY(-2px); }
+.hero-cta .arrow {
+  width: 22px; height: 1px;
+  background: var(--paper);
+  position: relative;
+  transition: width 0.3s var(--ease);
+}
+.hero-cta .arrow::after {
+  content: ''; position: absolute; right: 0; top: -3px;
+  width: 7px; height: 7px;
+  border-top: 1px solid var(--paper);
+  border-right: 1px solid var(--paper);
+  transform: rotate(45deg);
+}
+.hero-cta:hover .arrow { width: 32px; }
+
+/* Page-load stagger */
+.hero-pole, .hero-name, .hero-tagline, .hero-meta, .hero-cta {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fade-up 0.95s var(--ease) forwards;
+}
+.hero-pole { animation-delay: 0.1s; }
+.hero-name { animation-delay: 0.28s; }
+.hero-tagline { animation-delay: 0.44s; }
+.hero-meta { animation-delay: 0.58s; }
+.hero-cta { animation-delay: 0.7s; }
+@keyframes fade-up { to { opacity: 1; transform: translateY(0); } }
 
 /* ──────────── SECTION SCAFFOLDING ──────────── */
 section { position: relative; }
-
 .reveal {
   opacity: 0; transform: translateY(24px);
   transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
@@ -398,40 +515,23 @@ section { position: relative; }
 .reveal.in { opacity: 1; transform: translateY(0); }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+  .hero-pole, .hero-name, .hero-tagline, .hero-meta, .hero-cta { opacity: 1; transform: none; }
 }
 
-/* Section eyebrow with rule line */
-.eyebrow-row {
-  display: flex; align-items: center; gap: 16px;
-  margin-bottom: 24px;
-}
-.eyebrow-row .rule {
-  flex: 1;
-  height: 1px;
-  background: var(--brass);
-  max-width: 80px;
-}
-
-/* ──────────── DARK SECTION (chair / about) ──────────── */
-.dark-section {
+/* ──────────── ABOUT (DARK WALNUT) ──────────── */
+.about {
   background: var(--ink);
   color: var(--on-dark);
-  padding: 120px var(--gutter);
+  padding: 130px var(--gutter);
   position: relative;
   overflow: hidden;
 }
-.dark-section::before {
-  /* Subtle warm vignette */
+.about::before {
   content: '';
   position: absolute; inset: 0;
   background: radial-gradient(ellipse at 50% 50%, rgba(107, 31, 26, 0.18) 0%, transparent 60%);
   pointer-events: none;
 }
-.dark-section .label { color: var(--brass-bright); }
-.dark-section h2 { color: var(--on-dark); }
-.dark-section .lede { color: var(--on-dark-2); }
-.dark-section .eyebrow-row .rule { background: var(--brass); max-width: 80px; }
-
 .about-grid {
   position: relative; z-index: 2;
   display: grid;
@@ -443,20 +543,56 @@ section { position: relative; }
 }
 @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-.about-art {
+.about-photo {
   width: 100%;
-  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.4));
+  aspect-ratio: 4 / 5;
+  background-image: url("https://images.unsplash.com/photo-1640168842538-39983fdebb1a?w=900&fit=crop&q=80&auto=format");
+  background-size: cover;
+  background-position: center;
+  background-color: var(--walnut);
+  border: 1px solid var(--brass);
+  position: relative;
+  filter: saturate(0.95) brightness(0.95);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 6px var(--ink),
+    inset 0 0 0 7px var(--brass-deep);
+}
+.about-photo::after {
+  /* Brass plaque overlay bottom-left */
+  content: '"The chair, since 2018."';
+  position: absolute;
+  bottom: 22px; left: 22px;
+  font-family: var(--accent);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--brass-bright);
+  background: rgba(26, 20, 16, 0.7);
+  border: 0.5px solid var(--brass-deep);
+  padding: 8px 14px;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(4px);
 }
 
-.about-text h2 { margin-bottom: 26px; }
-.about-text h2 em { color: var(--cordovan-bright); font-style: italic; }
-.about-text p { margin-bottom: 18px; }
+.about-text .label { color: var(--brass-bright); }
+.about-text h2 { color: var(--on-dark); margin-bottom: 26px; }
+.about-text h2 em {
+  font-family: var(--accent);
+  font-style: italic;
+  color: var(--cordovan-bright);
+  font-weight: 500;
+}
+.about-text p {
+  margin-bottom: 18px;
+  color: var(--on-dark-2);
+}
 .about-text .signature {
   margin-top: 28px;
   padding-top: 22px;
   border-top: 1px solid var(--ink-2);
-  font-family: var(--display);
+  font-family: var(--accent);
   font-style: italic;
+  font-weight: 500;
   font-size: 24px;
   color: var(--brass-bright);
 }
@@ -468,31 +604,112 @@ section { position: relative; }
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--on-dark-3);
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
-/* ──────────── SERVICES — engraved menu plate ──────────── */
+.eyebrow-row {
+  display: inline-flex; align-items: center; gap: 14px;
+  margin-bottom: 22px;
+}
+.eyebrow-row .rule {
+  display: inline-block;
+  width: 36px; height: 1px;
+  background: var(--brass);
+}
+
+/* ──────────── GALLERY (NEW — 4 real photos) ──────────── */
+.gallery {
+  background: var(--paper);
+  padding: 130px var(--gutter);
+}
+.gallery-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.gallery-head .label { color: var(--ink-3); }
+.gallery-head h2 { color: var(--ink); margin: 14px 0 18px; }
+.gallery-head h2 em { font-family: var(--accent); font-style: italic; font-weight: 500; color: var(--cordovan); }
+.gallery-head .lede { margin: 0 auto; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px)  { .gallery-grid { grid-template-columns: 1fr; } }
+
+.gtile {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--walnut);
+  border: 1px solid var(--brass);
+  cursor: default;
+  transition: transform 0.45s var(--ease);
+}
+.gtile:hover { transform: translateY(-4px); }
+.gtile-photo {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.92) brightness(0.95);
+  transition: transform 1.4s var(--ease), filter 0.4s ease;
+}
+.gtile:hover .gtile-photo {
+  transform: scale(1.05);
+  filter: saturate(1) brightness(1);
+}
+.gtile-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(26, 20, 16, 0) 50%, rgba(26, 20, 16, 0.85) 100%);
+  pointer-events: none;
+}
+.gtile-caption {
+  position: absolute;
+  left: 18px; right: 18px; bottom: 18px;
+  z-index: 2;
+  color: var(--paper);
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 14px;
+}
+.gtile-caption .name {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(18px, 1.8vw, 24px);
+  letter-spacing: -0.005em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+.gtile-caption .num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--brass-bright);
+  text-transform: uppercase;
+}
+
+/* ──────────── SERVICES — engraved menu plate (preserved from v3) ──────────── */
 .services {
   padding: 130px var(--gutter);
-  background: var(--paper);
+  background: var(--paper-2);
   position: relative;
 }
 .services-head {
   text-align: center;
   margin-bottom: 64px;
 }
-.services-head h2 { color: var(--ink); margin-bottom: 18px; }
-.services-head h2 em { font-style: italic; color: var(--cordovan); }
+.services-head .label { color: var(--ink-3); }
+.services-head h2 { color: var(--ink); margin: 14px 0 18px; }
+.services-head h2 em { font-family: var(--accent); font-style: italic; font-weight: 500; color: var(--cordovan); }
 .services-head .lede { margin: 0 auto; }
-.services-head .eyebrow-row { justify-content: center; }
-.services-head .eyebrow-row .rule { max-width: 50px; }
 
 .menu-plate {
   max-width: 760px;
   margin: 0 auto;
   position: relative;
-  background: var(--paper-2);
-  /* Brass-edged frame, two-line: outer 1px brass, inner 1px brass with paper gap */
+  background: var(--paper);
   border: 1px solid var(--brass);
   padding: 58px clamp(32px, 5vw, 64px);
 }
@@ -516,7 +733,7 @@ section { position: relative; }
 .menu-plate-title {
   text-align: center;
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 400;
   font-size: clamp(28px, 3.4vw, 42px);
   letter-spacing: 0.04em;
   color: var(--ink);
@@ -528,8 +745,9 @@ section { position: relative; }
 }
 .menu-plate-title em {
   display: block;
+  font-family: var(--accent);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
   letter-spacing: 0.32em;
   color: var(--cordovan);
@@ -537,9 +755,7 @@ section { position: relative; }
   text-transform: uppercase;
 }
 
-.menu-list {
-  list-style: none;
-}
+.menu-list { list-style: none; }
 .menu-list li {
   display: flex; align-items: baseline;
   padding: 14px 0;
@@ -550,17 +766,17 @@ section { position: relative; }
 .menu-list li:last-child { border-bottom: none; }
 .menu-list .name {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 400;
   font-size: clamp(18px, 1.8vw, 22px);
   color: var(--ink);
 }
 .menu-list .name .duration {
-  font-family: var(--body);
+  font-family: var(--accent);
   font-style: italic;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ink-3);
   margin-left: 14px;
-  font-weight: 400;
+  font-weight: 500;
 }
 .menu-list .leader {
   flex: 1;
@@ -571,7 +787,7 @@ section { position: relative; }
 }
 .menu-list .price {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 400;
   font-size: clamp(20px, 2vw, 26px);
   color: var(--cordovan);
   letter-spacing: -0.01em;
@@ -582,14 +798,14 @@ section { position: relative; }
   padding-top: 18px;
   border-top: 0.5px solid var(--brass);
   text-align: center;
-  font-family: var(--display);
+  font-family: var(--accent);
   font-style: italic;
   font-size: 14.5px;
   color: var(--ink-3);
   line-height: 1.55;
 }
 
-/* ──────────── BOOKING — brass appointment book ──────────── */
+/* ──────────── BOOKING ──────────── */
 .booking {
   padding: 130px var(--gutter);
   background: var(--ink);
@@ -616,11 +832,10 @@ section { position: relative; }
 @media (max-width: 900px) { .booking-grid { grid-template-columns: 1fr; gap: 36px; } }
 
 .booking-prose .label { color: var(--brass-bright); }
-.booking-prose h2 { color: var(--on-dark); margin-bottom: 22px; }
-.booking-prose h2 em { font-style: italic; color: var(--cordovan-bright); }
+.booking-prose h2 { color: var(--on-dark); margin: 14px 0 22px; }
+.booking-prose h2 em { font-family: var(--accent); font-style: italic; font-weight: 500; color: var(--cordovan-bright); }
 .booking-prose .lede { color: var(--on-dark-2); margin-bottom: 18px; }
 
-/* The "appointment book" — brass-edged dark plate with a list of mock slots */
 .appointment-book {
   background: var(--walnut);
   border: 1px solid var(--brass);
@@ -638,7 +853,6 @@ section { position: relative; }
   pointer-events: none;
 }
 .appointment-book::after {
-  /* Subtle paper grain on the dark walnut */
   content: '';
   position: absolute; inset: 0;
   pointer-events: none;
@@ -646,7 +860,6 @@ section { position: relative; }
   mix-blend-mode: screen;
   opacity: 0.18;
 }
-
 .book-header {
   display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
   gap: 8px;
@@ -657,7 +870,7 @@ section { position: relative; }
 }
 .book-header .name {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 400;
   font-size: clamp(18px, 2vw, 22px);
   color: var(--brass-bright);
   letter-spacing: 0.04em;
@@ -670,7 +883,6 @@ section { position: relative; }
   text-transform: uppercase;
   color: var(--on-dark-3);
 }
-
 .book-rows {
   list-style: none;
   position: relative; z-index: 1;
@@ -691,15 +903,9 @@ section { position: relative; }
 .book-rows .time { color: var(--brass-bright); font-weight: 500; }
 .book-rows .barber { font-family: var(--body); color: var(--on-dark); font-size: 13px; letter-spacing: 0; }
 .book-rows .barber.taken { color: var(--on-dark-3); text-decoration: line-through; font-style: italic; }
-.book-rows .stat {
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  text-align: right;
-}
+.book-rows .stat { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; text-align: right; }
 .book-rows .stat.open { color: var(--brass-bright); }
 .book-rows .stat.held { color: var(--on-dark-3); }
-
 .book-cta {
   display: block;
   margin-top: 22px;
@@ -712,14 +918,10 @@ section { position: relative; }
   letter-spacing: 0.24em;
   text-transform: uppercase;
   border: 1px solid var(--brass);
-  transition: background 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease);
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
   position: relative; z-index: 1;
 }
-.book-cta:hover {
-  background: var(--cordovan-2);
-  transform: translateY(-2px);
-}
-
+.book-cta:hover { background: var(--cordovan-2); transform: translateY(-2px); }
 .book-foot {
   margin-top: 14px;
   padding-top: 14px;
@@ -748,12 +950,11 @@ section { position: relative; }
   align-items: start;
 }
 @media (max-width: 900px) { .visit-grid { grid-template-columns: 1fr; gap: 40px; } }
-
-.visit h2 { color: var(--ink); margin-bottom: 22px; }
-.visit h2 em { font-style: italic; color: var(--cordovan); }
+.visit h2 { color: var(--ink); margin: 14px 0 22px; }
+.visit h2 em { font-family: var(--accent); font-style: italic; font-weight: 500; color: var(--cordovan); }
 .visit p { color: var(--ink-2); margin-bottom: 16px; max-width: 50ch; }
+.visit .label { color: var(--ink-3); }
 
-/* Hours plate — engraved brass aesthetic */
 .hours-plate {
   margin-top: 28px;
   padding: 26px 24px;
@@ -779,10 +980,7 @@ section { position: relative; }
   border-bottom: 0.5px solid var(--brass);
   position: relative; z-index: 1;
 }
-.hours-plate ul {
-  list-style: none;
-  position: relative; z-index: 1;
-}
+.hours-plate ul { list-style: none; position: relative; z-index: 1; }
 .hours-plate li {
   display: grid; grid-template-columns: 1.2fr 1fr;
   align-items: baseline;
@@ -792,7 +990,7 @@ section { position: relative; }
 .hours-plate li:last-child { border-bottom: none; }
 .hours-plate .day {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 400;
   font-size: 17px;
   color: var(--ink);
   letter-spacing: 0.02em;
@@ -807,9 +1005,8 @@ section { position: relative; }
 .hours-plate .row-today .day { color: var(--cordovan); }
 .hours-plate .row-today .day::before { content: '✦  '; color: var(--cordovan); font-size: 12px; }
 .hours-plate .row-today .time { color: var(--cordovan); }
-.hours-plate .by-app { font-style: italic; font-family: var(--display); font-size: 14px; color: var(--ink-3); }
+.hours-plate .by-app { font-style: italic; font-family: var(--accent); font-size: 14px; color: var(--ink-3); }
 
-/* Directory plate */
 .directory-plate {
   background: var(--walnut);
   color: var(--on-dark);
@@ -840,7 +1037,7 @@ section { position: relative; }
 }
 .directory-plate .name {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 400;
   font-size: clamp(28px, 3.4vw, 38px);
   letter-spacing: 0.02em;
   color: var(--brass-bright);
@@ -849,7 +1046,7 @@ section { position: relative; }
   position: relative; z-index: 1;
 }
 .directory-plate .line {
-  font-family: var(--display);
+  font-family: var(--accent);
   font-style: italic;
   font-size: 16px;
   line-height: 1.55;
@@ -864,9 +1061,7 @@ section { position: relative; }
   gap: 12px;
   position: relative; z-index: 1;
 }
-.directory-plate .meta div {
-  display: flex; flex-direction: column;
-}
+.directory-plate .meta div { display: flex; flex-direction: column; }
 .directory-plate .meta .k {
   font-family: var(--mono);
   font-size: 9.5px;
@@ -889,29 +1084,25 @@ section { position: relative; }
   position: relative;
   text-align: center;
 }
-.testimonial-inner {
-  max-width: 920px;
-  margin: 0 auto;
-  position: relative;
-}
+.testimonial-inner { max-width: 920px; margin: 0 auto; position: relative; }
 .testimonial-mark {
   font-family: var(--display);
   font-style: italic;
-  font-size: 180px;
-  line-height: 0.6;
+  font-size: 200px;
+  line-height: 0.55;
   color: var(--cordovan);
   opacity: 0.32;
-  margin-bottom: -40px;
+  margin-bottom: -30px;
   user-select: none;
 }
 .testimonial-text {
-  font-family: var(--display);
+  font-family: var(--accent);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   font-size: clamp(26px, 3.4vw, 44px);
   line-height: 1.32;
   color: var(--ink);
-  letter-spacing: -0.005em;
+  letter-spacing: 0.005em;
 }
 .testimonial-text em { color: var(--cordovan); }
 .testimonial-meta {
@@ -939,9 +1130,9 @@ section { position: relative; }
   border-bottom: 0.5px solid var(--ink-2);
   margin-bottom: 24px;
 }
-.footer .wordmark { color: var(--on-dark); }
-.footer .wordmark .text .name { color: var(--brass-bright); }
-.footer .wordmark .text .sub { color: var(--brass); }
+.footer .brand-foot { display: inline-flex; align-items: center; gap: 14px; }
+.footer .wordmark-text .name { color: var(--brass-bright); }
+.footer .wordmark-text .sub { color: var(--brass); }
 .footer-meta {
   display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
   font-family: var(--mono);
@@ -970,8 +1161,8 @@ section { position: relative; }
 }
 
 @media (max-width: 720px) {
-  .dark-section, .services, .booking, .visit, .testimonial { padding: 80px 22px; }
-  .hero { padding: 100px 22px 50px; }
+  .about, .gallery, .services, .booking, .visit, .testimonial { padding: 80px 22px; }
+  .hero { padding: 140px 22px 70px; }
   .menu-plate { padding: 40px 22px; }
   .appointment-book { padding: 24px 20px; }
   .book-rows li { grid-template-columns: 60px 1fr 70px; gap: 10px; }
@@ -985,180 +1176,76 @@ section { position: relative; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .hero-eyebrow, .hero-art, .hero-name, .hero-tagline, .hero-meta, .hero-cta {
-    opacity: 1; transform: none;
-  }
 }
   </style>
 </head>
 <body>
 
+<!-- ═══════════════ STATUS BAR ═══════════════ -->
+<div class="status-bar">
+  <span class="left">
+    <span class="live-dot" aria-hidden="true"></span>
+    <span>Open Today · 09:00 — 19:00</span>
+    <span class="sep">·</span>
+    <span>Walk-ins Welcome</span>
+    <span class="sep">·</span>
+    <span>Live Booking</span>
+  </span>
+  <span class="right">Trongate · Glasgow G1</span>
+</div>
+
 <!-- ═══════════════ TOPBAR ═══════════════ -->
 <header class="topbar" id="topbar">
-  <a href="#top" class="topbar-id" aria-label="Trongate Barber Co. — home">
-    <span class="wordmark">
-      <svg class="crest" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-        <!-- Vintage barber-crest: oval frame with crossed scissor + razor monogram -->
-        <ellipse cx="24" cy="24" rx="20" ry="22" stroke="#B8956C" stroke-width="1.4"/>
-        <ellipse cx="24" cy="24" rx="16" ry="18" stroke="#B8956C" stroke-width="0.6" opacity="0.6"/>
-        <line x1="14" y1="14" x2="34" y2="34" stroke="#1A1410" stroke-width="1.6" stroke-linecap="round"/>
-        <line x1="34" y1="14" x2="14" y2="34" stroke="#6B1F1A" stroke-width="1.6" stroke-linecap="round"/>
-        <circle cx="14" cy="14" r="2" fill="#B8956C"/>
-        <circle cx="34" cy="34" r="2" fill="#B8956C"/>
-      </svg>
-      <span class="text">
-        <span class="name">Trongate Barber Co.</span>
-        <span class="sub">Glasgow · Est. MMXVIII</span>
-      </span>
+  <a href="#top" class="brand" aria-label="Trongate Barber Co. — home">
+    <span class="pole pole-sm" aria-hidden="true">
+      <span class="pole-cap"></span>
+      <span class="pole-cyl"></span>
+      <span class="pole-cap bottom"></span>
+    </span>
+    <span class="wordmark-text">
+      <span class="name">Trongate Barber Co.</span>
+      <span class="sub">Glasgow · Est. MMXVIII</span>
     </span>
   </a>
+
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#services">Services</a>
+    <a href="#book">Book</a>
+    <a href="#visit">Visit</a>
+    <a href="#about">About</a>
+  </nav>
+
   <a href="#book" class="topbar-cta">Book a Chair →</a>
 </header>
 
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero" id="top">
-
-  <!-- Flanking barber poles — desktop only -->
-  <div class="hero-pole hero-pole-l" aria-hidden="true">
-    <div class="pole-cap"></div>
-    <div class="pole-cylinder"></div>
-    <div class="pole-base"></div>
-  </div>
-  <div class="hero-pole hero-pole-r" aria-hidden="true">
-    <div class="pole-cap"></div>
-    <div class="pole-cylinder"></div>
-    <div class="pole-base"></div>
-  </div>
+  <div class="hero-photo" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
 
   <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <span class="rule"></span>
-      <span class="star">✦</span>
-      <span>A Glasgow Barbershop</span>
-      <span class="star">✦</span>
-      <span class="rule"></span>
-    </div>
-
-    <!-- Hero illustration — the chair -->
-    <svg class="hero-art" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" aria-label="A chesterfield-style barber chair">
-      <defs>
-        <linearGradient id="leather" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#8C2D26"/>
-          <stop offset="55%" stop-color="#6B1F1A"/>
-          <stop offset="100%" stop-color="#4A1212"/>
-        </linearGradient>
-        <linearGradient id="leather-back" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#7A2520"/>
-          <stop offset="100%" stop-color="#5A1818"/>
-        </linearGradient>
-        <linearGradient id="brass-grad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#8B6E4E"/>
-          <stop offset="50%" stop-color="#D4B689"/>
-          <stop offset="100%" stop-color="#8B6E4E"/>
-        </linearGradient>
-        <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#3A2415"/>
-          <stop offset="100%" stop-color="#1A0E08"/>
-        </linearGradient>
-        <pattern id="tuft" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
-          <circle cx="11" cy="11" r="1.6" fill="#4A1212" opacity="0.7"/>
-        </pattern>
-      </defs>
-
-      <!-- Cream wall behind -->
-      <rect width="480" height="240" fill="#ECE5D7"/>
-      <!-- Floor -->
-      <rect y="240" width="480" height="80" fill="url(#floor)"/>
-      <!-- Floor band -->
-      <line x1="0" y1="240" x2="480" y2="240" stroke="#B8956C" stroke-width="1"/>
-      <line x1="0" y1="246" x2="480" y2="246" stroke="#B8956C" stroke-width="0.4" opacity="0.7"/>
-
-      <!-- Mirror behind chair -->
-      <ellipse cx="240" cy="124" rx="118" ry="98" fill="#ECE5D7" stroke="#B8956C" stroke-width="2.5"/>
-      <ellipse cx="240" cy="124" rx="106" ry="86" fill="none" stroke="#B8956C" stroke-width="0.8" opacity="0.6"/>
-      <!-- Mirror reflection (faint room hint) -->
-      <g opacity="0.18">
-        <line x1="160" y1="86" x2="320" y2="86" stroke="#3A2415" stroke-width="0.6"/>
-        <line x1="160" y1="120" x2="320" y2="120" stroke="#3A2415" stroke-width="0.6"/>
-        <line x1="160" y1="154" x2="320" y2="154" stroke="#3A2415" stroke-width="0.6"/>
-      </g>
-
-      <!-- Mirror brass cap -->
-      <rect x="232" y="20" width="16" height="10" fill="url(#brass-grad)"/>
-
-      <!-- Chair base / pedestal -->
-      <ellipse cx="240" cy="290" rx="76" ry="10" fill="#1A0E08" opacity="0.4"/>
-      <rect x="216" y="240" width="48" height="50" fill="#3A2415" stroke="#1A0E08" stroke-width="1"/>
-      <!-- Pedestal pole -->
-      <rect x="232" y="218" width="16" height="22" fill="url(#brass-grad)"/>
-      <!-- Footrest -->
-      <rect x="190" y="232" width="100" height="6" fill="url(#brass-grad)"/>
-      <line x1="200" y1="238" x2="200" y2="252" stroke="#8B6E4E" stroke-width="1.2"/>
-      <line x1="280" y1="238" x2="280" y2="252" stroke="#8B6E4E" stroke-width="1.2"/>
-
-      <!-- Chair seat (chesterfield buttoned leather) -->
-      <rect x="174" y="190" width="132" height="32" rx="4" fill="url(#leather)" stroke="#4A1212" stroke-width="0.8"/>
-      <rect x="174" y="190" width="132" height="32" rx="4" fill="url(#tuft)"/>
-      <!-- Seat front edge -->
-      <rect x="172" y="218" width="136" height="6" rx="2" fill="#4A1212"/>
-
-      <!-- Chair backrest (tall, button-tufted) -->
-      <path d="M174 190 L174 110 Q174 96 188 96 L292 96 Q306 96 306 110 L306 190 Z"
-            fill="url(#leather-back)" stroke="#4A1212" stroke-width="0.8"/>
-      <path d="M174 190 L174 110 Q174 96 188 96 L292 96 Q306 96 306 110 L306 190 Z"
-            fill="url(#tuft)"/>
-
-      <!-- Headrest -->
-      <ellipse cx="240" cy="92" rx="38" ry="10" fill="url(#leather)" stroke="#4A1212" stroke-width="0.8"/>
-      <ellipse cx="240" cy="92" rx="38" ry="10" fill="url(#tuft)" opacity="0.6"/>
-
-      <!-- Chair arms — chrome / brass -->
-      <rect x="158" y="180" width="24" height="14" rx="6" fill="url(#brass-grad)"/>
-      <rect x="298" y="180" width="24" height="14" rx="6" fill="url(#brass-grad)"/>
-      <!-- Arm details -->
-      <circle cx="170" cy="186" r="2.5" fill="#8B6E4E"/>
-      <circle cx="310" cy="186" r="2.5" fill="#8B6E4E"/>
-
-      <!-- Cabinetry left -->
-      <rect x="20" y="160" width="80" height="80" fill="#3A2415" stroke="#281810" stroke-width="0.8"/>
-      <rect x="28" y="168" width="64" height="64" fill="none" stroke="#B8956C" stroke-width="0.6"/>
-      <!-- Bottle silhouettes -->
-      <rect x="38" y="180" width="10" height="32" fill="#4A1212" stroke="#B8956C" stroke-width="0.4"/>
-      <rect x="52" y="184" width="9" height="28" fill="#3A2415" stroke="#B8956C" stroke-width="0.4"/>
-      <rect x="65" y="178" width="11" height="34" fill="#1F2A38" stroke="#B8956C" stroke-width="0.4"/>
-      <rect x="80" y="186" width="8" height="26" fill="#3A2415" stroke="#B8956C" stroke-width="0.4"/>
-
-      <!-- Cabinetry right -->
-      <rect x="380" y="160" width="80" height="80" fill="#3A2415" stroke="#281810" stroke-width="0.8"/>
-      <rect x="388" y="168" width="64" height="64" fill="none" stroke="#B8956C" stroke-width="0.6"/>
-      <rect x="396" y="180" width="9" height="32" fill="#4A1212" stroke="#B8956C" stroke-width="0.4"/>
-      <rect x="409" y="186" width="10" height="26" fill="#1F2A38" stroke="#B8956C" stroke-width="0.4"/>
-      <rect x="423" y="180" width="9" height="32" fill="#3A2415" stroke="#B8956C" stroke-width="0.4"/>
-      <rect x="436" y="184" width="10" height="28" fill="#4A1212" stroke="#B8956C" stroke-width="0.4"/>
-
-      <!-- Sconce light glow (warm) -->
-      <circle cx="60" cy="70" r="22" fill="#B8956C" opacity="0.18"/>
-      <circle cx="420" cy="70" r="22" fill="#B8956C" opacity="0.18"/>
-
-      <!-- Wall plaque -->
-      <rect x="218" y="250" width="44" height="14" fill="url(#brass-grad)" opacity="0.3"/>
-    </svg>
+    <span class="pole hero-pole" aria-hidden="true">
+      <span class="pole-cap"></span>
+      <span class="pole-cyl"></span>
+      <span class="pole-cap bottom"></span>
+    </span>
 
     <h1 class="hero-name">
       Trongate <em>Barber Co.</em>
-      <span class="small">Established MMXVIII · Glasgow</span>
+      <span class="small">— Six chairs at the foot of the Tron, since 2018 —</span>
     </h1>
 
     <p class="hero-tagline">
-      Six chairs at the foot of the Tron — open six days, Sunday by appointment, the chair held until you've sat down.
+      A proper barbershop on Glasgow's oldest crossroads. The chair held until you've sat down.
     </p>
 
     <div class="hero-meta">
-      <span>★ ★ ★ ★ ★</span>
+      <span class="stars">★ ★ ★ ★ ★</span>
       <span class="sep">·</span>
       <span>1,200+ Cuts Yearly</span>
       <span class="sep">·</span>
-      <span>Live Booking via Nearcut</span>
+      <span>Live Booking · Nearcut</span>
     </div>
 
     <a href="#book" class="hero-cta">
@@ -1168,80 +1255,13 @@ section { position: relative; }
   </div>
 </section>
 
-<!-- ═══════════════ ABOUT (DARK) ═══════════════ -->
-<section class="dark-section" id="about">
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section class="about" id="about">
   <div class="about-grid">
-    <div class="about-art reveal">
-      <!-- Decorative composition: barber pole + a framed shop sign -->
-      <svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg" aria-label="Shop sign with a barber pole">
-        <defs>
-          <linearGradient id="brass2" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#8B6E4E"/>
-            <stop offset="50%" stop-color="#D4B689"/>
-            <stop offset="100%" stop-color="#8B6E4E"/>
-          </linearGradient>
-          <linearGradient id="sign-bg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#3A2415"/>
-            <stop offset="100%" stop-color="#1A0E08"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Barber pole on left -->
-        <rect x="60" y="70" width="32" height="14" fill="url(#brass2)"/>
-        <rect x="60" y="386" width="32" height="14" fill="url(#brass2)"/>
-        <rect x="64" y="84" width="24" height="302" fill="#ECE5D7"/>
-        <!-- Inner pole stripes (decorative — the spinning effect would be in CSS but
-             this is a static illustration. The HOMEPAGE pole element above does spin.) -->
-        <g clip-path="inset(84px 312px 84px 64px)">
-          <g>
-            <polygon points="64,90 88,84 88,98 64,104" fill="#6B1F1A"/>
-            <polygon points="64,108 88,102 88,116 64,122" fill="#1F4A6B"/>
-            <polygon points="64,126 88,120 88,134 64,140" fill="#6B1F1A"/>
-            <polygon points="64,144 88,138 88,152 64,158" fill="#1F4A6B"/>
-            <polygon points="64,162 88,156 88,170 64,176" fill="#6B1F1A"/>
-            <polygon points="64,180 88,174 88,188 64,194" fill="#1F4A6B"/>
-            <polygon points="64,198 88,192 88,206 64,212" fill="#6B1F1A"/>
-            <polygon points="64,216 88,210 88,224 64,230" fill="#1F4A6B"/>
-            <polygon points="64,234 88,228 88,242 64,248" fill="#6B1F1A"/>
-            <polygon points="64,252 88,246 88,260 64,266" fill="#1F4A6B"/>
-            <polygon points="64,270 88,264 88,278 64,284" fill="#6B1F1A"/>
-            <polygon points="64,288 88,282 88,296 64,302" fill="#1F4A6B"/>
-            <polygon points="64,306 88,300 88,314 64,320" fill="#6B1F1A"/>
-            <polygon points="64,324 88,318 88,332 64,338" fill="#1F4A6B"/>
-            <polygon points="64,342 88,336 88,350 64,356" fill="#6B1F1A"/>
-            <polygon points="64,360 88,354 88,368 64,374" fill="#1F4A6B"/>
-          </g>
-        </g>
-
-        <!-- Cap top -->
-        <ellipse cx="76" cy="70" rx="20" ry="6" fill="#D4B689"/>
-        <!-- Cap bottom -->
-        <ellipse cx="76" cy="400" rx="20" ry="6" fill="#D4B689"/>
-
-        <!-- Shop sign -->
-        <rect x="140" y="120" width="220" height="240" fill="url(#sign-bg)" stroke="#B8956C" stroke-width="2"/>
-        <rect x="148" y="128" width="204" height="224" fill="none" stroke="#B8956C" stroke-width="0.6"/>
-        <text x="250" y="180" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="500" font-size="24" fill="#D4B689" text-anchor="middle">— since —</text>
-        <text x="250" y="244" font-family="Cormorant Garamond, serif" font-weight="500" font-size="76" fill="#ECE5D7" text-anchor="middle" letter-spacing="2">2018</text>
-        <text x="250" y="284" font-family="Cormorant Garamond, serif" font-weight="500" font-size="20" fill="#D4B689" text-anchor="middle" letter-spacing="6">TRONGATE</text>
-        <text x="250" y="306" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="500" font-size="14" fill="#B8956C" text-anchor="middle">— Glasgow G1 —</text>
-
-        <!-- Decorative flourish -->
-        <g stroke="#B8956C" stroke-width="0.8" fill="none" opacity="0.7">
-          <line x1="170" y1="324" x2="330" y2="324"/>
-          <circle cx="250" cy="324" r="2" fill="#B8956C"/>
-        </g>
-
-        <!-- Hanging brass chains -->
-        <line x1="180" y1="120" x2="180" y2="80" stroke="#B8956C" stroke-width="1"/>
-        <line x1="320" y1="120" x2="320" y2="80" stroke="#B8956C" stroke-width="1"/>
-        <circle cx="180" cy="78" r="3" fill="#D4B689"/>
-        <circle cx="320" cy="78" r="3" fill="#D4B689"/>
-      </svg>
-    </div>
+    <div class="about-photo reveal" aria-label="Barber at work in the chair"></div>
 
     <div class="about-text reveal">
-      <div class="eyebrow-row"><span class="rule"></span><span class="label">The Shop</span></div>
+      <span class="eyebrow-row"><span class="rule"></span><span class="label">The Shop</span></span>
       <h2>The chair, <em>since 2018.</em></h2>
       <p class="lede">Eight years at the foot of the Tron. Six chairs. Six barbers. One philosophy: every cut gets the time the cut needs — no rush at the back of the queue, no cut shortened to make a slot.</p>
       <p class="lede">We trade walk-ins fast and bookings to the dot, but never the finish for either. Skin fades, hot-towel shaves, beard work, gentleman's cuts — done with the patience of an older trade and the standards of a newer one.</p>
@@ -1254,10 +1274,57 @@ section { position: relative; }
   </div>
 </section>
 
+<!-- ═══════════════ GALLERY ═══════════════ -->
+<section class="gallery">
+  <div class="gallery-head reveal">
+    <span class="label">Inside the Shop</span>
+    <h2>The work, <em>up close.</em></h2>
+    <p class="lede">Hot towels in the morning, fades by the hour, beards and cuts on the dot.</p>
+  </div>
+
+  <div class="gallery-grid">
+    <figure class="gtile reveal" aria-label="Hot towel shave">
+      <div class="gtile-photo" style="background-image:url('https://images.unsplash.com/photo-1532710093739-9470acff878f?w=800&fit=crop&q=80&auto=format');"></div>
+      <div class="gtile-overlay"></div>
+      <figcaption class="gtile-caption">
+        <span class="name">Hot Towel Shave</span>
+        <span class="num">01</span>
+      </figcaption>
+    </figure>
+
+    <figure class="gtile reveal" aria-label="Skin fade">
+      <div class="gtile-photo" style="background-image:url('https://images.unsplash.com/photo-1735150949874-ec9c9c82b2c4?w=800&fit=crop&q=80&auto=format');"></div>
+      <div class="gtile-overlay"></div>
+      <figcaption class="gtile-caption">
+        <span class="name">Skin Fade</span>
+        <span class="num">02</span>
+      </figcaption>
+    </figure>
+
+    <figure class="gtile reveal" aria-label="Beard sculpt">
+      <div class="gtile-photo" style="background-image:url('https://images.unsplash.com/photo-1717089256239-dc2ed4d9dfc6?w=800&fit=crop&q=80&auto=format');"></div>
+      <div class="gtile-overlay"></div>
+      <figcaption class="gtile-caption">
+        <span class="name">Beard Sculpt</span>
+        <span class="num">03</span>
+      </figcaption>
+    </figure>
+
+    <figure class="gtile reveal" aria-label="The chair">
+      <div class="gtile-photo" style="background-image:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&fit=crop&q=80&auto=format');"></div>
+      <div class="gtile-overlay"></div>
+      <figcaption class="gtile-caption">
+        <span class="name">The Chair</span>
+        <span class="num">04</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
 <!-- ═══════════════ SERVICES ═══════════════ -->
 <section class="services" id="services">
   <div class="services-head reveal">
-    <div class="eyebrow-row"><span class="rule"></span><span class="label label-ink">The Menu</span><span class="rule"></span></div>
+    <span class="label">The Menu</span>
     <h2>House <em>Services.</em></h2>
     <p class="lede">Six services, every one priced clearly. No upsells at the chair, no hidden card surcharge.</p>
   </div>
@@ -1312,7 +1379,7 @@ section { position: relative; }
   <div class="booking-grid">
 
     <div class="booking-prose reveal">
-      <div class="eyebrow-row"><span class="rule"></span><span class="label">Live Booking</span></div>
+      <span class="label">Live Booking</span>
       <h2>The <em>Appointment</em><br>Book.</h2>
       <p class="lede">Live availability, kept on the same calendar our barbers consult before the first cut of the morning. No second-hand list, no message held in the post.</p>
       <p class="lede">Sundays by appointment only — book the night before to be sure of a chair.</p>
@@ -1349,7 +1416,7 @@ section { position: relative; }
   <div class="visit-grid">
 
     <div class="reveal">
-      <div class="eyebrow-row"><span class="rule"></span><span class="label label-ink">Hours</span></div>
+      <span class="label">Hours</span>
       <h2>Open six days,<br><em>Sunday by appointment.</em></h2>
       <p class="lede">Doors open early through to evening. Sunday slots booked the night before.</p>
 
@@ -1359,7 +1426,7 @@ section { position: relative; }
           <li><span class="day">Monday</span><span class="time">09.00 — 18.00</span></li>
           <li><span class="day">Tuesday</span><span class="time">09.00 — 18.00</span></li>
           <li><span class="day">Wednesday</span><span class="time">09.00 — 18.00</span></li>
-          <li class="row-today"><span class="day">Thursday <em style="font-style:italic;font-family:var(--display);font-weight:400;font-size:13px;letter-spacing:0;">— today</em></span><span class="time">09.00 — 19.00</span></li>
+          <li class="row-today"><span class="day">Thursday <em style="font-family:var(--accent);font-style:italic;font-weight:500;font-size:13px;letter-spacing:0;">— today</em></span><span class="time">09.00 — 19.00</span></li>
           <li><span class="day">Friday</span><span class="time">09.00 — 19.00</span></li>
           <li><span class="day">Saturday</span><span class="time">08.00 — 17.00</span></li>
           <li><span class="day">Sunday</span><span class="time by-app">By appointment</span></li>
@@ -1368,7 +1435,7 @@ section { position: relative; }
     </div>
 
     <div class="reveal">
-      <div class="eyebrow-row"><span class="rule"></span><span class="label label-ink">Directory</span></div>
+      <span class="label">Directory</span>
       <h2>Find <em>the shop.</em></h2>
       <p class="lede">A modern shop on Glasgow's oldest crossroads — eight chairs, six barbers, no rush.</p>
 
@@ -1406,15 +1473,13 @@ section { position: relative; }
 <!-- ═══════════════ FOOTER ═══════════════ -->
 <footer class="footer">
   <div class="footer-top">
-    <span class="wordmark">
-      <svg class="crest" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-        <ellipse cx="24" cy="24" rx="20" ry="22" stroke="#B8956C" stroke-width="1.4"/>
-        <line x1="14" y1="14" x2="34" y2="34" stroke="#ECE5D7" stroke-width="1.6" stroke-linecap="round"/>
-        <line x1="34" y1="14" x2="14" y2="34" stroke="#6B1F1A" stroke-width="1.6" stroke-linecap="round"/>
-        <circle cx="14" cy="14" r="2" fill="#B8956C"/>
-        <circle cx="34" cy="34" r="2" fill="#B8956C"/>
-      </svg>
-      <span class="text">
+    <span class="brand-foot">
+      <span class="pole pole-sm" aria-hidden="true">
+        <span class="pole-cap"></span>
+        <span class="pole-cyl"></span>
+        <span class="pole-cap bottom"></span>
+      </span>
+      <span class="wordmark-text">
         <span class="name">Trongate Barber Co.</span>
         <span class="sub">Glasgow · Est. MMXVIII</span>
       </span>
