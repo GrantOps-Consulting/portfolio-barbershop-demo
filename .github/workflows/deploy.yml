@@ -1,0 +1,77 @@
+name: Deploy Portfolio Barbershop Demo
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  SITE_URL: barbershop-demo.grantopsconsulting.com
+  AWS_REGION: eu-west-1
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy to S3
+        run: |
+          aws s3 sync ./ "s3://${SITE_URL}" --delete \
+            --exclude '.git/*' --exclude '.github/*' --exclude '.DS_Store' \
+            --exclude 'README.md' --exclude '*.md'
+
+      - name: Tag bucket with LastDeployedAt (merge with terraform-managed tags)
+        continue-on-error: true
+        run: |
+          # Read existing tags, drop CI-managed keys, append fresh CI values, write back.
+          # Without this, every deploy wipes the terraform-managed tags. With merge,
+          # terraform's tags survive across deploys (lifecycle.ignore_changes in
+          # terraform-modules/s3 v1.11.1+ handles the CI-only keys).
+          TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          BUCKET="${SITE_URL}"
+          EXISTING=$(aws s3api get-bucket-tagging --bucket "$BUCKET" --query 'TagSet' --output json 2>/dev/null || echo '[]')
+          echo "$EXISTING" | jq \
+            --arg ts "$TS" \
+            '{TagSet: ([.[] | select(.Key | IN("DeployedBy","LastDeployedAt","Environment") | not)] +
+              [{Key:"DeployedBy",Value:"github-actions"},
+               {Key:"LastDeployedAt",Value:$ts},
+               {Key:"Environment",Value:"production"}])}' > /tmp/bucket-tags.json
+          aws s3api put-bucket-tagging --bucket "$BUCKET" --tagging file:///tmp/bucket-tags.json
+
+      - name: Purge Cloudflare cache
+        continue-on-error: true  # tolerated on first deploy before CLOUDFLARE_API_TOKEN secret is set
+        run: |
+          RESPONSE=$(curl -s -X POST \
+            "https://api.cloudflare.com/client/v4/zones/${{ vars.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}')
+          echo "$RESPONSE"
+          SUCCESS=$(echo "$RESPONSE" | jq -r '.success')
+          if [ "$SUCCESS" != "true" ]; then
+            echo "ERROR: Cache purge failed"
+            exit 1
+          fi
+          echo "Cloudflare cache purged"
+
+      - name: Verify deployment
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "http://${SITE_URL}.s3-website-eu-west-1.amazonaws.com/")
+          echo "S3 endpoint returned HTTP $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "WARNING: S3 endpoint not returning 200"
+            exit 1
+          fi
