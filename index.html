@@ -2,36 +2,56 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <title>The Trongate Tribune — A Barber's Chronicle, Glasgow</title>
+  <title>Trongate Barber Co. — A Glasgow Barbershop, Est. 2018</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://grantopsconsulting.com/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio demo concept — modern Glasgow barbershop presented as an east-end shop newspaper, with a working Nearcut booking integration.">
-  <meta name="theme-color" content="#EFE8D8">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23EFE8D8'/%3E%3Cline x1='4' y1='6' x2='28' y2='6' stroke='%231A1410' stroke-width='1.2'/%3E%3Cline x1='4' y1='8' x2='28' y2='8' stroke='%231A1410' stroke-width='0.5'/%3E%3Ctext x='16' y='22' font-family='Georgia, serif' font-size='14' fill='%231A1410' text-anchor='middle' font-weight='700' font-style='italic'%3ET%3C/text%3E%3Cline x1='4' y1='28' x2='28' y2='28' stroke='%231A1410' stroke-width='1.2'/%3E%3C/svg%3E">
+  <meta name="description" content="Portfolio demo concept — a classic premium Glasgow barbershop with a Nearcut booking integration.">
+  <meta name="theme-color" content="#1A1410">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ECE5D7'/%3E%3Crect x='12' y='4' width='8' height='24' fill='%23ECE5D7' stroke='%231A1410' stroke-width='0.6'/%3E%3Cpath d='M12 8 L20 5 L20 9 L12 12 Z M12 14 L20 11 L20 15 L12 18 Z M12 20 L20 17 L20 21 L12 24 Z' fill='%236B1F1A'/%3E%3Cellipse cx='16' cy='4' rx='5' ry='1.5' fill='%23B8956C'/%3E%3Cellipse cx='16' cy='28' rx='5' ry='1.5' fill='%23B8956C'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
 :root {
-  /* Newsprint palette — dingier than fresh paper, slightly yellowed */
-  --paper:       #EFE8D8;
-  --paper-2:     #E5DDC9;
-  --paper-3:     #D6CCB3;
-  --ink:         #1A1410;
-  --ink-2:       #3A2E22;
-  --ink-3:       #6A5A48;
-  --ink-4:       #9C8E78;
-  --rule:        #1A1410;
-  --extra:       #6B1F1E;        /* deep burgundy — for "EXTRA" / "URGENT" */
-  --extra-soft:  #8E2C2C;
+  /* Cream / parchment — the walls */
+  --paper:        #ECE5D7;
+  --paper-2:      #E0D7C2;
+  --paper-3:      #C9BC9F;
 
-  --display: 'DM Serif Display', 'Times New Roman', Georgia, serif;
-  --body:    'Newsreader', 'Times New Roman', Georgia, serif;
-  --mono:    'Special Elite', 'Courier New', monospace;
+  /* Cordovan — the chesterfield leather */
+  --cordovan:     #6B1F1A;
+  --cordovan-2:   #4A1212;
+  --cordovan-bright:#8C2D26;
+  --cordovan-glow: rgba(107, 31, 26, 0.25);
 
-  --gutter: clamp(16px, 3vw, 32px);
-  --max:    1180px;
+  /* Walnut — dark wood cabinetry */
+  --walnut:       #3A2415;
+  --walnut-2:     #281810;
+
+  /* Brass — fittings, plates, edges */
+  --brass:        #B8956C;
+  --brass-bright: #D4B689;
+  --brass-deep:   #8B6E4E;
+  --brass-faint:  rgba(184, 149, 108, 0.18);
+
+  /* Ink — warm black */
+  --ink:          #1A1410;
+  --ink-2:        #3A2E22;
+  --ink-3:        #6A5A48;
+  --ink-4:        #9C8E78;
+
+  --on-dark:      #ECE5D7;
+  --on-dark-2:    #C9BC9F;
+  --on-dark-3:    #8B7E69;
+
+  --display: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --body:    'Manrope', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  --mono:    'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  --gutter: clamp(20px, 4vw, 60px);
+  --max:    1320px;
+  --ease:   cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,823 +60,921 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  background: #C9BD9E;          /* darker than paper — frames the broadsheet */
 }
 
 body {
   font-family: var(--body);
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.6;
   color: var(--ink);
-  background: #C9BD9E;
-  margin: 0;
-  padding: 0 0 60px;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  background: var(--paper);
+  overflow-x: hidden;
+  position: relative;
 }
 
 img, svg { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 
-/* ──────────── BROADSHEET ──────────── */
-.paper {
-  position: relative;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 40px clamp(20px, 4vw, 56px) 60px;
-  background: var(--paper);
-  /* Soft edge shadow — newsprint sitting on darker desk */
-  box-shadow:
-    0 1px 0 rgba(26, 20, 16, 0.06),
-    0 12px 32px rgba(26, 20, 16, 0.18),
-    0 40px 80px -20px rgba(26, 20, 16, 0.22);
-}
-
-/* Paper grain overlay — fixed in place, very subtle */
-.paper::before {
-  content: '';
-  position: absolute; inset: 0;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.16 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  mix-blend-mode: multiply;
-  opacity: 0.55;
-  z-index: 1;
-}
-
-/* Vertical "ink-bleed" along the spine — inner margin appears slightly darker, like a bound paper */
-.paper::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0; left: 50%;
-  width: 1px;
-  pointer-events: none;
-  z-index: 1;
-  background: linear-gradient(to bottom, transparent 0%, rgba(26, 20, 16, 0.04) 30%, rgba(26, 20, 16, 0.04) 70%, transparent 100%);
-}
-
-.sheet { position: relative; z-index: 2; }
+::selection { background: var(--cordovan); color: var(--paper); }
 
 /* ──────────── TYPE ──────────── */
-.serif-d, .display-h, h1, h2, h3 {
+.serif, h1, h2, h3 {
   font-family: var(--display);
-  font-weight: 400;          /* DM Serif Display is naturally heavy */
-  letter-spacing: -0.01em;
-  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  line-height: 1.05;
 }
+h1 { font-size: clamp(48px, 8vw, 124px); }
+h2 { font-size: clamp(36px, 5.4vw, 84px); }
+h3 { font-size: clamp(22px, 2.6vw, 32px); }
 
 .italic { font-style: italic; }
 
-.tw {
+.label {
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: 0.06em;
+  font-weight: 500;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
+  color: var(--brass);
+}
+.label-ink { color: var(--ink-3); }
+.label-cream { color: var(--brass-bright); }
+
+.lede {
+  font-family: var(--body);
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.65;
+  font-weight: 400;
   color: var(--ink-2);
-}
-.tw-lg {
-  font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  max-width: 56ch;
 }
 
-.smallcaps {
-  font-variant: small-caps;
-  letter-spacing: 0.04em;
+.shell {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
 }
 
-.body-just {
-  text-align: justify;
-  hyphens: auto;
-  font-size: 14.5px;
-  line-height: 1.55;
+/* ──────────── TOPBAR ──────────── */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px var(--gutter);
+  background: rgba(236, 229, 215, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--paper-3);
+  transition: padding 0.4s ease, background 0.4s ease;
+}
+.topbar.lit {
+  padding: 12px var(--gutter);
+  background: rgba(236, 229, 215, 0.98);
+  border-bottom: 1px solid var(--brass);
+}
+.wordmark {
+  display: inline-flex; align-items: center; gap: 12px;
   color: var(--ink);
 }
-.body-just p + p { margin-top: 0.7em; text-indent: 1.4em; }
-.body-just p:first-child { text-indent: 0; }
+.wordmark .crest {
+  width: 36px; height: 36px;
+  flex-shrink: 0;
+  transition: width 0.4s ease, height 0.4s ease;
+}
+.topbar.lit .wordmark .crest { width: 30px; height: 30px; }
+.wordmark .text { display: flex; flex-direction: column; line-height: 1; }
+.wordmark .text .name {
+  font-family: var(--display); font-weight: 600;
+  font-size: 22px; letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.wordmark .text .sub {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--cordovan);
+  margin-top: 5px;
+}
+.topbar.lit .wordmark .text .name { font-size: 19px; }
 
-/* ──────────── MASTHEAD ──────────── */
-.masthead {
+.topbar-cta {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 11px 18px;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  position: relative;
+  white-space: nowrap;
+}
+.topbar-cta:hover {
+  background: var(--cordovan);
+  color: var(--paper);
+  border-color: var(--cordovan);
+}
+
+@media (max-width: 640px) {
+  .topbar { padding: 12px 18px; }
+  .wordmark .text .name { font-size: 18px; }
+  .topbar-cta { padding: 9px 12px; font-size: 10px; letter-spacing: 0.18em; }
+}
+
+/* ──────────── HERO ──────────── */
+.hero {
+  position: relative;
+  padding: 120px var(--gutter) 60px;
+  background: var(--paper);
+  overflow: hidden;
+  min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: center;
+}
+/* Subtle warm gradient — mimics the cream wall under sconce light */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(184, 149, 108, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 100%, rgba(58, 36, 21, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
   text-align: center;
-  padding: 8px 0 0;
+  display: flex; flex-direction: column; align-items: center;
 }
-.masthead-top-rule {
-  border-top: 1.5px solid var(--rule);
-  border-bottom: 0.5px solid var(--rule);
-  height: 6px;
-  margin-bottom: 14px;
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  margin-bottom: 28px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--ink-3);
 }
-.masthead-pre {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.36em;
-  color: var(--ink-2);
-  margin-bottom: 18px;
-  text-transform: uppercase;
+.hero-eyebrow .rule {
+  display: inline-block;
+  width: 40px; height: 1px;
+  background: var(--brass);
 }
-.nameplate {
+.hero-eyebrow .star { color: var(--cordovan); font-family: var(--display); font-size: 14px; line-height: 1; }
+
+/* Hero illustration — the centerpiece SVG of the shop interior */
+.hero-art {
+  width: clamp(280px, 42vw, 520px);
+  height: auto;
+  margin: 6px 0 28px;
+  filter: drop-shadow(0 18px 30px rgba(58, 36, 21, 0.18));
+}
+
+/* Wordmark hero — Trongate Barber Co. as a vintage poster nameplate */
+.hero-name {
   font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(48px, 9.5vw, 132px);
+  font-weight: 500;
+  font-size: clamp(54px, 9vw, 132px);
   line-height: 0.92;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.018em;
   color: var(--ink);
   margin-bottom: 6px;
-  /* Subtle ink-bleed shadow */
-  text-shadow: 0 0 0.5px rgba(26, 20, 16, 0.12);
 }
-.nameplate em { font-style: italic; color: var(--extra); }
-.masthead-tagline {
+.hero-name .small {
+  display: block;
+  font-size: 0.42em;
+  letter-spacing: 0.42em;
+  font-weight: 500;
+  color: var(--cordovan);
+  margin-top: 0.2em;
+  text-transform: uppercase;
+}
+.hero-name em { font-style: italic; color: var(--cordovan); }
+
+.hero-tagline {
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(15px, 1.5vw, 19px);
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.45;
   color: var(--ink-2);
-  margin-bottom: 12px;
+  margin: 16px 0 32px;
+  max-width: 38ch;
 }
-.masthead-tagline .ornament { color: var(--extra); margin: 0 8px; }
-.masthead-bottom-rule {
-  border-top: 0.5px solid var(--rule);
-  border-bottom: 1.5px solid var(--rule);
-  height: 6px;
-  margin-top: 12px;
-  margin-bottom: 0;
-}
-.masthead-dateline {
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
-  gap: 10px;
-  padding: 8px 0 6px;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  border-bottom: 0.5px solid var(--rule);
-  margin-bottom: 18px;
-}
-.masthead-dateline .price { color: var(--extra); font-weight: 400; }
 
-/* ──────────── WEATHER STRIP ──────────── */
-.weather {
-  display: flex; align-items: center; justify-content: space-between; gap: 18px;
-  flex-wrap: wrap;
-  padding: 8px 12px;
-  margin-bottom: 22px;
-  border: 0.5px solid var(--rule);
+.hero-meta {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 8px 24px;
+  margin-bottom: 36px;
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.weather .label { font-weight: 400; }
-.weather .body { font-family: var(--body); font-size: 13.5px; text-transform: none; letter-spacing: 0; color: var(--ink); font-style: italic; }
-.weather .extra { color: var(--extra); }
-
-/* ──────────── FRONT PAGE GRID ──────────── */
-.frontpage {
-  display: grid;
-  grid-template-columns: 0.85fr 1.2fr 1.2fr 0.9fr;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-}
-.frontpage > .col {
-  padding: 22px 18px 26px;
-  border-right: 1px solid var(--rule);
-  position: relative;
-}
-.frontpage > .col:last-child { border-right: none; }
-
-@media (max-width: 900px) {
-  .frontpage { grid-template-columns: 1fr 1fr; }
-  .frontpage > .col {
-    border-bottom: 1px solid var(--rule);
-  }
-  .frontpage > .col:nth-child(2n) { border-right: none; }
-  .frontpage > .col:nth-last-child(-n+2) { border-bottom: none; }
-}
-@media (max-width: 600px) {
-  .frontpage { grid-template-columns: 1fr; }
-  .frontpage > .col { border-right: none !important; border-bottom: 1px solid var(--rule); }
-  .frontpage > .col:last-child { border-bottom: none; }
-}
-
-/* Column headline */
-.col-section {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-3);
-  text-align: center;
-  border-bottom: 0.5px solid var(--rule);
-  padding-bottom: 8px;
-  margin-bottom: 14px;
 }
-.col-section.extra { color: var(--extra); }
+.hero-meta .sep { color: var(--brass); }
 
-.col-headline {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(20px, 2.2vw, 30px);
-  line-height: 0.98;
-  letter-spacing: -0.012em;
-  margin-bottom: 8px;
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 18px 36px 18px 28px;
+  background: var(--cordovan);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  border: 1px solid var(--cordovan);
+  position: relative;
+  transition: background 0.4s var(--ease), color 0.4s var(--ease), transform 0.3s var(--ease);
+  /* Brass-plate framing */
+  box-shadow: inset 0 0 0 1px rgba(212, 182, 137, 0.4);
 }
-.col-subhead {
-  font-family: var(--body);
+.hero-cta:hover {
+  background: var(--cordovan-2);
+  transform: translateY(-2px);
+}
+.hero-cta .arrow {
+  width: 18px; height: 1px;
+  background: var(--paper);
+  position: relative;
+  transition: width 0.3s var(--ease);
+}
+.hero-cta .arrow::after {
+  content: '';
+  position: absolute;
+  right: 0; top: -3px;
+  width: 7px; height: 7px;
+  border-top: 1px solid var(--paper);
+  border-right: 1px solid var(--paper);
+  transform: rotate(45deg);
+}
+.hero-cta:hover .arrow { width: 28px; }
+
+/* Animated entry */
+.hero-eyebrow, .hero-art, .hero-name, .hero-tagline, .hero-meta, .hero-cta {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fade-up 0.9s var(--ease) forwards;
+}
+.hero-eyebrow { animation-delay: 0.05s; }
+.hero-art { animation-delay: 0.18s; transform: translateY(20px); }
+.hero-name { animation-delay: 0.32s; }
+.hero-tagline { animation-delay: 0.46s; }
+.hero-meta { animation-delay: 0.58s; }
+.hero-cta { animation-delay: 0.7s; }
+@keyframes fade-up {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ──────────── BARBER POLE ──────────── */
+/* Standalone pole element used in hero illustration AND as accent piece */
+.pole {
+  display: inline-block;
+  position: relative;
+  width: 28px;
+  vertical-align: middle;
+}
+.pole-cap, .pole-base {
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(180deg, var(--brass-bright) 0%, var(--brass) 50%, var(--brass-deep) 100%);
+  border: 0.5px solid var(--brass-deep);
+}
+.pole-cap { border-radius: 6px 6px 0 0; }
+.pole-base { border-radius: 0 0 6px 6px; }
+.pole-cylinder {
+  height: 100px;
+  background: var(--paper);
+  border-left: 1px solid var(--brass-deep);
+  border-right: 1px solid var(--brass-deep);
+  position: relative;
+  overflow: hidden;
+}
+.pole-cylinder::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -10%; right: -10%; bottom: -50%;
+  background: repeating-linear-gradient(
+    -65deg,
+    var(--paper) 0px,
+    var(--paper) 8px,
+    var(--cordovan) 8px,
+    var(--cordovan) 16px,
+    var(--paper) 16px,
+    var(--paper) 24px,
+    #1F4A6B 24px,
+    #1F4A6B 32px
+  );
+  animation: pole-spin 3.2s linear infinite;
+}
+@keyframes pole-spin {
+  from { transform: translateY(0); }
+  to   { transform: translateY(64px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pole-cylinder::before { animation: none; }
+}
+
+/* Hero pole positioning — flanks the centerpiece */
+.hero-pole {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+}
+.hero-pole-l { left: clamp(20px, 8vw, 120px); }
+.hero-pole-r { right: clamp(20px, 8vw, 120px); }
+.hero-pole .pole-cylinder { height: 220px; }
+.hero-pole .pole-cylinder::before { animation-duration: 4s; }
+@media (max-width: 900px) {
+  .hero-pole { display: none; }
+}
+
+/* ──────────── SECTION SCAFFOLDING ──────────── */
+section { position: relative; }
+
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  will-change: opacity, transform;
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Section eyebrow with rule line */
+.eyebrow-row {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 24px;
+}
+.eyebrow-row .rule {
+  flex: 1;
+  height: 1px;
+  background: var(--brass);
+  max-width: 80px;
+}
+
+/* ──────────── DARK SECTION (chair / about) ──────────── */
+.dark-section {
+  background: var(--ink);
+  color: var(--on-dark);
+  padding: 120px var(--gutter);
+  position: relative;
+  overflow: hidden;
+}
+.dark-section::before {
+  /* Subtle warm vignette */
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(107, 31, 26, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+.dark-section .label { color: var(--brass-bright); }
+.dark-section h2 { color: var(--on-dark); }
+.dark-section .lede { color: var(--on-dark-2); }
+.dark-section .eyebrow-row .rule { background: var(--brass); max-width: 80px; }
+
+.about-grid {
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+@media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+.about-art {
+  width: 100%;
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.4));
+}
+
+.about-text h2 { margin-bottom: 26px; }
+.about-text h2 em { color: var(--cordovan-bright); font-style: italic; }
+.about-text p { margin-bottom: 18px; }
+.about-text .signature {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--ink-2);
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 24px;
+  color: var(--brass-bright);
+}
+.about-text .signature small {
+  display: block;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+  margin-top: 6px;
+}
+
+/* ──────────── SERVICES — engraved menu plate ──────────── */
+.services {
+  padding: 130px var(--gutter);
+  background: var(--paper);
+  position: relative;
+}
+.services-head {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.services-head h2 { color: var(--ink); margin-bottom: 18px; }
+.services-head h2 em { font-style: italic; color: var(--cordovan); }
+.services-head .lede { margin: 0 auto; }
+.services-head .eyebrow-row { justify-content: center; }
+.services-head .eyebrow-row .rule { max-width: 50px; }
+
+.menu-plate {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  background: var(--paper-2);
+  /* Brass-edged frame, two-line: outer 1px brass, inner 1px brass with paper gap */
+  border: 1px solid var(--brass);
+  padding: 58px clamp(32px, 5vw, 64px);
+}
+.menu-plate::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--brass);
+  pointer-events: none;
+}
+.menu-plate-corner {
+  position: absolute;
+  width: 22px; height: 22px;
+  pointer-events: none;
+}
+.menu-plate-corner.tl { top: 16px; left: 16px; border-top: 2px solid var(--brass); border-left: 2px solid var(--brass); }
+.menu-plate-corner.tr { top: 16px; right: 16px; border-top: 2px solid var(--brass); border-right: 2px solid var(--brass); }
+.menu-plate-corner.bl { bottom: 16px; left: 16px; border-bottom: 2px solid var(--brass); border-left: 2px solid var(--brass); }
+.menu-plate-corner.br { bottom: 16px; right: 16px; border-bottom: 2px solid var(--brass); border-right: 2px solid var(--brass); }
+
+.menu-plate-title {
+  text-align: center;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(28px, 3.4vw, 42px);
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-transform: uppercase;
+  padding-bottom: 16px;
+  margin-bottom: 26px;
+  position: relative;
+  border-bottom: 0.5px solid var(--brass);
+}
+.menu-plate-title em {
+  display: block;
   font-style: italic;
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.4;
-  color: var(--ink-2);
-  margin-bottom: 14px;
-  border-bottom: 0.5px dotted var(--ink-3);
-  padding-bottom: 12px;
-}
-
-/* Drop cap on lead article */
-.dropcap::first-letter {
-  font-family: var(--display);
-  font-style: normal;
-  font-weight: 400;
-  float: left;
-  font-size: 5.4em;
-  line-height: 0.86;
-  padding: 0.04em 0.1em 0 0;
-  margin-right: 0.04em;
-  color: var(--extra);
-}
-
-/* ──────────── COLUMN 1 — TODAY'S CHAIRS ──────────── */
-.chairs-list {
-  list-style: none;
-  font-family: var(--mono);
-  font-size: 12px;
-  margin-bottom: 18px;
-}
-.chairs-list li {
-  display: flex; justify-content: space-between; align-items: baseline;
-  padding: 6px 0;
-  border-bottom: 0.5px dotted var(--ink-3);
-  letter-spacing: 0.04em;
-}
-.chairs-list li:last-child { border-bottom: none; }
-.chairs-list .time { font-weight: 400; }
-.chairs-list .barber { color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.1em; font-size: 11px; }
-.chairs-list .taken { color: var(--ink-4); text-transform: uppercase; letter-spacing: 0.16em; font-size: 10px; text-decoration: line-through; }
-.chairs-list .extra-tag { color: var(--extra); font-weight: 400; }
-
-.walkin-note {
-  font-style: italic;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--ink-2);
-  text-align: justify;
-  hyphens: auto;
-  margin-bottom: 18px;
-}
-
-/* Sponsor box */
-.sponsor {
-  border: 1px solid var(--rule);
-  padding: 12px 12px 14px;
-  text-align: center;
-  margin-top: auto;
-}
-.sponsor .head {
-  font-family: var(--mono);
-  font-size: 9px;
   letter-spacing: 0.32em;
+  color: var(--cordovan);
+  margin-top: 6px;
   text-transform: uppercase;
-  color: var(--ink-3);
-  border-bottom: 0.5px solid var(--rule);
-  padding-bottom: 6px;
-  margin-bottom: 10px;
-}
-.sponsor .body {
-  font-family: var(--display);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.15;
-  color: var(--ink);
-}
-.sponsor .body span { display: block; font-style: normal; font-size: 11px; letter-spacing: 0.18em; color: var(--ink-3); text-transform: uppercase; margin-top: 4px; font-family: var(--mono); }
-
-/* ──────────── COLUMN 3 — MENU ──────────── */
-.menu-block .col-headline {
-  text-align: center;
-  border-bottom: 1.5px solid var(--rule);
-  padding-bottom: 10px;
-  margin-bottom: 6px;
-}
-.menu-block .menu-sub {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  text-align: center;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 0.5px solid var(--rule);
 }
 
 .menu-list {
   list-style: none;
-  font-family: var(--body);
-  font-size: 14.5px;
-  line-height: 1.4;
 }
 .menu-list li {
   display: flex; align-items: baseline;
-  padding: 8px 0;
+  padding: 14px 0;
+  border-bottom: 0.5px dotted var(--brass-deep);
+  transition: padding-left 0.3s var(--ease);
 }
-.menu-list li:nth-child(odd) {
-  /* nothing */
-}
+.menu-list li:hover { padding-left: 8px; }
+.menu-list li:last-child { border-bottom: none; }
 .menu-list .name {
-  font-family: var(--body);
+  font-family: var(--display);
   font-weight: 500;
+  font-size: clamp(18px, 1.8vw, 22px);
   color: var(--ink);
-  white-space: nowrap;
 }
-.menu-list .leader {
-  flex: 1;
-  border-bottom: 0.5px dotted var(--ink-3);
-  margin: 0 4px 0.18em;
-  align-self: end;
-  height: 0;
-}
-.menu-list .price {
-  font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: var(--ink);
-  white-space: nowrap;
-}
-.menu-list .duration {
+.menu-list .name .duration {
   font-family: var(--body);
   font-style: italic;
   font-size: 12px;
   color: var(--ink-3);
   margin-left: 14px;
-  white-space: nowrap;
-}
-
-.menu-terms {
-  font-family: var(--body);
-  font-size: 12.5px;
-  font-style: italic;
-  color: var(--ink-2);
-  margin-top: 14px;
-  padding-top: 10px;
-  border-top: 0.5px solid var(--rule);
-  text-align: center;
-  line-height: 1.45;
-}
-
-/* ──────────── COLUMN 4 — PROPRIETOR'S NOTE ──────────── */
-.proprietor {
-  font-family: var(--body);
-  font-style: italic;
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--ink-2);
-  text-align: justify;
-  hyphens: auto;
-}
-.proprietor p + p { margin-top: 0.6em; }
-.proprietor .signoff {
-  margin-top: 18px;
-  text-align: right;
-  font-family: var(--display);
-  font-style: italic;
   font-weight: 400;
-  font-size: 18px;
-  color: var(--ink);
 }
-.proprietor .signoff small {
-  display: block;
-  font-family: var(--mono);
-  font-style: normal;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-top: 4px;
-}
-
-/* ──────────── PAGE BREAK ──────────── */
-.page-break {
-  display: flex; align-items: center; gap: 18px;
-  margin: 36px 0 28px;
-}
-.page-break::before, .page-break::after {
-  content: '';
+.menu-list .leader {
   flex: 1;
-  border-top: 1px solid var(--rule);
+  margin: 0 10px 0.18em;
+  border-bottom: 0.5px dotted var(--brass-deep);
+  align-self: end;
+  height: 0;
 }
-.page-break .ornament {
+.menu-list .price {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(20px, 2vw, 26px);
+  color: var(--cordovan);
+  letter-spacing: -0.01em;
+}
+
+.menu-foot {
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 0.5px solid var(--brass);
+  text-align: center;
   font-family: var(--display);
   font-style: italic;
-  font-weight: 400;
-  font-size: 22px;
-  color: var(--extra);
-  letter-spacing: 0.4em;
-  padding-right: 0;
-}
-.page-break .num {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
+  font-size: 14.5px;
   color: var(--ink-3);
+  line-height: 1.55;
 }
 
-/* ──────────── PAGE 2 — TELEGRAPH (BOOKING) ──────────── */
-.page-booking {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: clamp(20px, 3vw, 48px);
-  align-items: start;
-  padding: 8px 0 6px;
-}
-@media (max-width: 720px) { .page-booking { grid-template-columns: 1fr; gap: 28px; } }
-
-.booking-prose .booking-h {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(36px, 5vw, 72px);
-  line-height: 0.96;
-  letter-spacing: -0.018em;
-  margin-bottom: 14px;
-}
-.booking-prose .booking-h em { font-style: italic; color: var(--extra); }
-.booking-prose .booking-sub {
-  font-family: var(--body);
-  font-style: italic;
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--ink-2);
-  margin-bottom: 18px;
-  padding-bottom: 18px;
-  border-bottom: 0.5px solid var(--rule);
-}
-.booking-prose .body-just { font-size: 14.5px; }
-
-.telegraph {
-  font-family: var(--mono);
-  background: var(--paper-2);
-  border: 1px solid var(--rule);
-  padding: 22px 24px;
+/* ──────────── BOOKING — brass appointment book ──────────── */
+.booking {
+  padding: 130px var(--gutter);
+  background: var(--ink);
+  color: var(--on-dark);
   position: relative;
+  overflow: hidden;
+}
+.booking::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(184, 149, 108, 0.16) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.booking-grid {
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(40px, 5vw, 80px);
+  max-width: 1180px;
+  margin: 0 auto;
+  align-items: center;
+}
+@media (max-width: 900px) { .booking-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+.booking-prose .label { color: var(--brass-bright); }
+.booking-prose h2 { color: var(--on-dark); margin-bottom: 22px; }
+.booking-prose h2 em { font-style: italic; color: var(--cordovan-bright); }
+.booking-prose .lede { color: var(--on-dark-2); margin-bottom: 18px; }
+
+/* The "appointment book" — brass-edged dark plate with a list of mock slots */
+.appointment-book {
+  background: var(--walnut);
+  border: 1px solid var(--brass);
+  padding: 30px 28px;
+  position: relative;
+  box-shadow:
+    0 30px 60px -10px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 6px var(--walnut),
+    inset 0 0 0 7px var(--brass-deep);
+}
+.appointment-book::before {
+  content: '';
+  position: absolute; inset: 14px;
+  border: 1px solid var(--brass-deep);
+  pointer-events: none;
+}
+.appointment-book::after {
+  /* Subtle paper grain on the dark walnut */
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.16 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: screen;
+  opacity: 0.18;
+}
+
+.book-header {
+  display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 0.5px solid var(--brass-deep);
+  position: relative; z-index: 1;
+}
+.book-header .name {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--brass-bright);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.book-header .date {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.book-rows {
+  list-style: none;
+  position: relative; z-index: 1;
+  font-family: var(--mono);
   font-size: 12.5px;
-  line-height: 1.65;
-  color: var(--ink);
+  color: var(--on-dark-2);
+}
+.book-rows li {
+  display: grid;
+  grid-template-columns: 70px 1fr 80px;
+  gap: 16px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 0.5px dotted rgba(184, 149, 108, 0.35);
   letter-spacing: 0.04em;
 }
-.telegraph::before {
-  content: '';
-  position: absolute;
-  top: 8px; left: 8px; right: 8px; bottom: 8px;
-  border: 0.5px solid var(--rule);
-  pointer-events: none;
-  opacity: 0.55;
-}
-.telegraph-head {
-  text-align: center;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 10px;
-  margin-bottom: 14px;
-  font-size: 11px;
-  letter-spacing: 0.32em;
+.book-rows li:last-child { border-bottom: none; }
+.book-rows .time { color: var(--brass-bright); font-weight: 500; }
+.book-rows .barber { font-family: var(--body); color: var(--on-dark); font-size: 13px; letter-spacing: 0; }
+.book-rows .barber.taken { color: var(--on-dark-3); text-decoration: line-through; font-style: italic; }
+.book-rows .stat {
+  font-size: 10px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  text-align: right;
 }
-.telegraph-head .extra { color: var(--extra); display: block; font-size: 14px; letter-spacing: 0.16em; margin-bottom: 4px; }
-.telegraph-row {
-  display: grid;
-  grid-template-columns: 75px 1fr;
-  gap: 12px;
-  padding: 5px 0;
-  border-bottom: 0.5px dotted var(--ink-3);
-}
-.telegraph-row:last-of-type { border-bottom: none; }
-.telegraph-row .k {
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 10.5px;
-  color: var(--ink-3);
-  align-self: center;
-}
-.telegraph-row .v { color: var(--ink); }
-.telegraph-row .v.dim { color: var(--ink-3); font-style: italic; font-family: var(--body); letter-spacing: 0; font-size: 13px; }
-.telegraph-row .v .stop { color: var(--extra); }
+.book-rows .stat.open { color: var(--brass-bright); }
+.book-rows .stat.held { color: var(--on-dark-3); }
 
-.telegraph-cta {
+.book-cta {
   display: block;
-  margin-top: 16px;
-  padding: 14px 16px;
+  margin-top: 22px;
+  padding: 16px 20px;
   text-align: center;
-  background: var(--ink);
+  background: var(--cordovan);
   color: var(--paper);
   font-family: var(--mono);
   font-size: 12px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  border: 1px solid var(--ink);
-  transition: background 0.3s, color 0.3s;
+  border: 1px solid var(--brass);
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease);
+  position: relative; z-index: 1;
 }
-.telegraph-cta:hover { background: var(--extra); color: var(--paper); border-color: var(--extra); }
-.telegraph-cta .arrow { letter-spacing: 0; margin-left: 4px; }
+.book-cta:hover {
+  background: var(--cordovan-2);
+  transform: translateY(-2px);
+}
 
-.telegraph-foot {
+.book-foot {
   margin-top: 14px;
-  padding-top: 12px;
-  border-top: 0.5px solid var(--rule);
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  text-align: center;
-}
-
-/* ──────────── PAGE 3 — HOURS / DIRECTORY ──────────── */
-.page-hours {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: clamp(20px, 3vw, 48px);
-  padding-top: 8px;
-}
-@media (max-width: 720px) { .page-hours { grid-template-columns: 1fr; } }
-
-.hours-block .col-headline {
-  border-bottom: 1.5px solid var(--rule);
-  padding-bottom: 10px;
-  margin-bottom: 6px;
-}
-.hours-block .col-subhead {
+  padding-top: 14px;
+  border-top: 0.5px solid var(--brass-deep);
   font-family: var(--mono);
   font-size: 10px;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ink-3);
-  text-align: left;
-  border-bottom: 0.5px solid var(--rule);
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  font-style: normal;
+  color: var(--on-dark-3);
+  text-align: center;
+  position: relative; z-index: 1;
 }
-.hours-list {
-  list-style: none;
-}
-.hours-list li {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
-  align-items: baseline;
-  padding: 9px 0;
-  border-bottom: 0.5px dotted var(--ink-3);
-}
-.hours-list li:last-child { border-bottom: none; }
-.hours-list .day {
-  font-family: var(--body);
-  font-weight: 500;
-  font-size: 14.5px;
-  color: var(--ink);
-}
-.hours-list .open, .hours-list .close {
-  font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: var(--ink-2);
-  text-align: right;
-}
-.hours-list .row-today { color: var(--extra); }
-.hours-list .row-today .day::before { content: '☞ '; color: var(--extra); }
-.hours-list .row-today .open, .hours-list .row-today .close { color: var(--extra); }
-.hours-list .by-app {
-  font-family: var(--body);
-  font-style: italic;
-  font-size: 13px;
-  color: var(--ink-2);
-  text-align: right;
-  grid-column: 2 / -1;
-}
+.book-foot .nc { color: var(--brass-bright); border-bottom: 0.5px solid var(--brass-deep); }
 
-.directory {
-  border: 1px solid var(--rule);
-  padding: 24px 22px 20px;
+/* ──────────── HOURS / DIRECTORY ──────────── */
+.visit {
+  padding: 120px var(--gutter);
+  background: var(--paper);
+}
+.visit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  max-width: 1180px;
+  margin: 0 auto;
+  align-items: start;
+}
+@media (max-width: 900px) { .visit-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+.visit h2 { color: var(--ink); margin-bottom: 22px; }
+.visit h2 em { font-style: italic; color: var(--cordovan); }
+.visit p { color: var(--ink-2); margin-bottom: 16px; max-width: 50ch; }
+
+/* Hours plate — engraved brass aesthetic */
+.hours-plate {
+  margin-top: 28px;
+  padding: 26px 24px;
+  background: var(--paper-2);
+  border: 1px solid var(--brass);
   position: relative;
 }
-.directory::before {
+.hours-plate::before {
   content: '';
   position: absolute; inset: 6px;
-  border: 0.5px solid var(--rule);
-  opacity: 0.5;
+  border: 0.5px solid var(--brass);
   pointer-events: none;
 }
-.directory-tag {
+.hours-plate .head {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+  text-align: center;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 0.5px solid var(--brass);
+  position: relative; z-index: 1;
+}
+.hours-plate ul {
+  list-style: none;
+  position: relative; z-index: 1;
+}
+.hours-plate li {
+  display: grid; grid-template-columns: 1.2fr 1fr;
+  align-items: baseline;
+  padding: 10px 4px;
+  border-bottom: 0.5px dotted var(--brass-deep);
+}
+.hours-plate li:last-child { border-bottom: none; }
+.hours-plate .day {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.hours-plate .time {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+  text-align: right;
+}
+.hours-plate .row-today .day { color: var(--cordovan); }
+.hours-plate .row-today .day::before { content: '✦  '; color: var(--cordovan); font-size: 12px; }
+.hours-plate .row-today .time { color: var(--cordovan); }
+.hours-plate .by-app { font-style: italic; font-family: var(--display); font-size: 14px; color: var(--ink-3); }
+
+/* Directory plate */
+.directory-plate {
+  background: var(--walnut);
+  color: var(--on-dark);
+  padding: 32px 28px;
+  border: 1px solid var(--brass);
+  position: relative;
+  box-shadow:
+    inset 0 0 0 6px var(--walnut),
+    inset 0 0 0 7px var(--brass-deep);
+}
+.directory-plate::before {
+  content: '';
+  position: absolute; inset: 14px;
+  border: 1px solid var(--brass-deep);
+  pointer-events: none;
+}
+.directory-plate .tag {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 9.5px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--paper);
-  background: var(--ink);
-  padding: 3px 10px;
-  margin-bottom: 16px;
-  position: relative;
-  z-index: 1;
+  color: var(--brass-bright);
+  margin-bottom: 18px;
+  padding: 4px 10px;
+  border: 0.5px solid var(--brass);
+  position: relative; z-index: 1;
 }
-.directory-name {
+.directory-plate .name {
   font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(24px, 3.4vw, 38px);
-  line-height: 0.96;
-  letter-spacing: -0.012em;
-  color: var(--ink);
+  font-weight: 500;
+  font-size: clamp(28px, 3.4vw, 38px);
+  letter-spacing: 0.02em;
+  color: var(--brass-bright);
   margin-bottom: 14px;
-  position: relative;
-}
-.directory-line {
-  font-family: var(--body);
-  font-style: italic;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--ink-2);
-  margin-bottom: 14px;
-  position: relative;
-}
-.directory-meta {
-  border-top: 0.5px solid var(--rule);
-  padding-top: 14px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-  position: relative;
-}
-.directory-meta div {
-  display: flex; justify-content: space-between; align-items: baseline;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
   text-transform: uppercase;
+  position: relative; z-index: 1;
 }
-.directory-meta .k { color: var(--ink-3); }
-.directory-meta .v { color: var(--ink); }
+.directory-plate .line {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--on-dark-2);
+  margin-bottom: 22px;
+  position: relative; z-index: 1;
+}
+.directory-plate .meta {
+  border-top: 0.5px solid var(--brass-deep);
+  padding-top: 16px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  position: relative; z-index: 1;
+}
+.directory-plate .meta div {
+  display: flex; flex-direction: column;
+}
+.directory-plate .meta .k {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+  margin-bottom: 4px;
+}
+.directory-plate .meta .v {
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 13.5px;
+  color: var(--on-dark);
+}
 
-/* ──────────── PAGE 4 — LETTER TO THE EDITOR ──────────── */
-.letter-page {
-  padding: 12px 0 4px;
+/* ──────────── PULL QUOTE ──────────── */
+.testimonial {
+  padding: 130px var(--gutter);
+  background: var(--paper-2);
+  position: relative;
   text-align: center;
 }
-.letter-frame {
-  max-width: 760px;
+.testimonial-inner {
+  max-width: 920px;
   margin: 0 auto;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  padding: 32px 28px 30px;
   position: relative;
 }
-.letter-tag {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 18px;
+.testimonial-mark {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 180px;
+  line-height: 0.6;
+  color: var(--cordovan);
+  opacity: 0.32;
+  margin-bottom: -40px;
+  user-select: none;
 }
-.letter-tag .extra { color: var(--extra); }
-.letter-text {
+.testimonial-text {
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(22px, 2.6vw, 30px);
+  font-size: clamp(26px, 3.4vw, 44px);
   line-height: 1.32;
   color: var(--ink);
   letter-spacing: -0.005em;
-  text-align: left;
 }
-.letter-text .open { font-weight: 400; font-style: normal; color: var(--extra); margin-right: 0.18em; font-size: 1.1em; vertical-align: -0.05em; }
-.letter-sign {
-  margin-top: 22px;
-  text-align: right;
-  font-family: var(--body);
-  font-style: italic;
-  font-size: 14.5px;
-  color: var(--ink-2);
-}
-.letter-sign strong { font-weight: 500; color: var(--ink); font-style: normal; font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; }
-
-/* ──────────── TRADING TICKER ──────────── */
-.ticker {
+.testimonial-text em { color: var(--cordovan); }
+.testimonial-meta {
   margin-top: 32px;
-  border-top: 1.5px solid var(--rule);
-  border-bottom: 0.5px solid var(--rule);
-  padding: 8px 0;
-  overflow: hidden;
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  position: relative;
-}
-.ticker-track {
-  display: flex; gap: 48px;
-  white-space: nowrap;
-  width: max-content;
-  animation: tickerscroll 56s linear infinite;
-}
-.ticker-track span {
-  display: inline-flex; align-items: center; gap: 10px;
-}
-.ticker-track .extra { color: var(--extra); }
-.ticker-track .sep { color: var(--ink-3); }
-@keyframes tickerscroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
-
-/* ──────────── COLOPHON ──────────── */
-.colophon {
-  text-align: center;
-  margin-top: 26px;
-  padding-top: 22px;
-  border-top: 0.5px solid var(--rule);
-}
-.colophon .label {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.36em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-3);
-  margin-bottom: 14px;
 }
-.colophon .credits {
-  font-family: var(--body);
-  font-style: italic;
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--ink-2);
-  max-width: 56ch;
-  margin: 0 auto 14px;
+.testimonial-meta .name { color: var(--ink); font-weight: 500; }
+.testimonial-meta .sep { color: var(--brass); margin: 0 12px; }
+
+/* ──────────── FOOTER ──────────── */
+.footer {
+  background: var(--walnut-2);
+  color: var(--on-dark-3);
+  padding: 50px var(--gutter) 30px;
+  border-top: 1px solid var(--brass-deep);
 }
-.colophon .disclaimer {
+.footer-top {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 22px;
+  padding-bottom: 26px;
+  border-bottom: 0.5px solid var(--ink-2);
+  margin-bottom: 24px;
+}
+.footer .wordmark { color: var(--on-dark); }
+.footer .wordmark .text .name { color: var(--brass-bright); }
+.footer .wordmark .text .sub { color: var(--brass); }
+.footer-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+}
+.footer-meta .sep { color: var(--ink-2); }
+.footer .tag { color: var(--cordovan-bright); }
+.disclaimer {
   font-family: var(--mono);
   font-size: 10.5px;
-  letter-spacing: 0.04em;
   line-height: 1.7;
-  color: var(--ink-3);
+  color: var(--on-dark-3);
+  text-align: center;
   text-transform: none;
-  max-width: 64ch;
-  margin: 0 auto;
+  letter-spacing: 0.04em;
 }
-.colophon .disclaimer a {
-  color: var(--extra);
-  border-bottom: 0.5px solid var(--extra-soft);
+.disclaimer a {
+  color: var(--brass-bright);
+  border-bottom: 0.5px solid var(--brass-deep);
   padding-bottom: 1px;
+  transition: color 0.3s, border-color 0.3s;
 }
-.colophon .disclaimer a:hover { color: var(--extra-soft); }
-
-/* ──────────── ORNAMENTS / MISC ──────────── */
-.fleuron-row {
-  display: flex; justify-content: center; align-items: center; gap: 18px;
-  font-family: var(--display);
-  font-style: italic;
-  color: var(--extra);
-  font-size: 22px;
-  margin: 22px 0;
-}
-.fleuron-row::before, .fleuron-row::after {
-  content: '';
-  flex: 1;
-  max-width: 80px;
-  border-top: 0.5px solid var(--rule);
-}
-
-/* Selection */
-::selection { background: var(--extra); color: var(--paper); }
-
-/* Hyperlinks within prose (non-CTA) */
-.body-just a, .proprietor a {
-  color: var(--extra);
-  border-bottom: 0.5px solid var(--extra-soft);
-}
-
-/* ──────────── MOBILE NUDGES ──────────── */
+.disclaimer a:hover { color: var(--cordovan-bright); border-color: var(--cordovan-bright); }
 @media (max-width: 720px) {
-  .paper { padding: 28px 18px 40px; }
-  .nameplate { font-size: clamp(38px, 12vw, 70px); }
-  .masthead-pre { font-size: 9px; letter-spacing: 0.28em; }
-  .masthead-tagline { font-size: 13px; }
-  .body-just { font-size: 14px; }
-  .menu-list .duration { display: none; }
-  .frontpage > .col { padding: 18px 14px 22px; }
-  .telegraph { padding: 18px 18px; }
-  .telegraph-row { grid-template-columns: 70px 1fr; gap: 10px; }
-  .ticker { font-size: 10px; }
-  .ticker-track { gap: 32px; animation-duration: 44s; }
+  .footer-top { flex-direction: column; text-align: center; gap: 18px; }
+}
+
+@media (max-width: 720px) {
+  .dark-section, .services, .booking, .visit, .testimonial { padding: 80px 22px; }
+  .hero { padding: 100px 22px 50px; }
+  .menu-plate { padding: 40px 22px; }
+  .appointment-book { padding: 24px 20px; }
+  .book-rows li { grid-template-columns: 60px 1fr 70px; gap: 10px; }
 }
 
 /* Reduced motion */
@@ -867,308 +985,482 @@ a { color: inherit; text-decoration: none; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .hero-eyebrow, .hero-art, .hero-name, .hero-tagline, .hero-meta, .hero-cta {
+    opacity: 1; transform: none;
+  }
 }
   </style>
 </head>
 <body>
 
-<div class="paper">
-  <div class="sheet">
+<!-- ═══════════════ TOPBAR ═══════════════ -->
+<header class="topbar" id="topbar">
+  <a href="#top" class="topbar-id" aria-label="Trongate Barber Co. — home">
+    <span class="wordmark">
+      <svg class="crest" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <!-- Vintage barber-crest: oval frame with crossed scissor + razor monogram -->
+        <ellipse cx="24" cy="24" rx="20" ry="22" stroke="#B8956C" stroke-width="1.4"/>
+        <ellipse cx="24" cy="24" rx="16" ry="18" stroke="#B8956C" stroke-width="0.6" opacity="0.6"/>
+        <line x1="14" y1="14" x2="34" y2="34" stroke="#1A1410" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="34" y1="14" x2="14" y2="34" stroke="#6B1F1A" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="14" cy="14" r="2" fill="#B8956C"/>
+        <circle cx="34" cy="34" r="2" fill="#B8956C"/>
+      </svg>
+      <span class="text">
+        <span class="name">Trongate Barber Co.</span>
+        <span class="sub">Glasgow · Est. MMXVIII</span>
+      </span>
+    </span>
+  </a>
+  <a href="#book" class="topbar-cta">Book a Chair →</a>
+</header>
 
-    <!-- ═══════════════ MASTHEAD ═══════════════ -->
-    <header class="masthead">
-      <div class="masthead-top-rule"></div>
-      <p class="masthead-pre">— A Barber's Chronicle, Glasgow ·  Established MMXVIII —</p>
-      <h1 class="nameplate">The Trongate <em>Tribune</em></h1>
-      <p class="masthead-tagline">
-        Published from the foot of the Tron <span class="ornament">❦</span> Six chairs daily, Sunday by appointment
-      </p>
-      <div class="masthead-bottom-rule"></div>
-      <div class="masthead-dateline">
-        <span>Glasgow · G1</span>
-        <span>Vol. VIII · No. CXXVII</span>
-        <span>Thursday, 14 May 2026</span>
-        <span class="price">Complimentary</span>
-      </div>
-    </header>
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="top">
 
-    <!-- ═══════════════ WEATHER STRIP ═══════════════ -->
-    <div class="weather">
-      <span class="label">The Weather, This Day</span>
-      <span class="body">Glasgow — overcast, eleven degrees, light wind from the west. <span class="extra">A fine day for a haircut.</span></span>
+  <!-- Flanking barber poles — desktop only -->
+  <div class="hero-pole hero-pole-l" aria-hidden="true">
+    <div class="pole-cap"></div>
+    <div class="pole-cylinder"></div>
+    <div class="pole-base"></div>
+  </div>
+  <div class="hero-pole hero-pole-r" aria-hidden="true">
+    <div class="pole-cap"></div>
+    <div class="pole-cylinder"></div>
+    <div class="pole-base"></div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="rule"></span>
+      <span class="star">✦</span>
+      <span>A Glasgow Barbershop</span>
+      <span class="star">✦</span>
+      <span class="rule"></span>
     </div>
 
-    <!-- ═══════════════ FRONT PAGE — FOUR COLUMNS ═══════════════ -->
-    <article class="frontpage">
+    <!-- Hero illustration — the chair -->
+    <svg class="hero-art" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" aria-label="A chesterfield-style barber chair">
+      <defs>
+        <linearGradient id="leather" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#8C2D26"/>
+          <stop offset="55%" stop-color="#6B1F1A"/>
+          <stop offset="100%" stop-color="#4A1212"/>
+        </linearGradient>
+        <linearGradient id="leather-back" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#7A2520"/>
+          <stop offset="100%" stop-color="#5A1818"/>
+        </linearGradient>
+        <linearGradient id="brass-grad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#8B6E4E"/>
+          <stop offset="50%" stop-color="#D4B689"/>
+          <stop offset="100%" stop-color="#8B6E4E"/>
+        </linearGradient>
+        <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3A2415"/>
+          <stop offset="100%" stop-color="#1A0E08"/>
+        </linearGradient>
+        <pattern id="tuft" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+          <circle cx="11" cy="11" r="1.6" fill="#4A1212" opacity="0.7"/>
+        </pattern>
+      </defs>
 
-      <!-- Column 1 — Today's chairs + walk-in note + sponsor -->
-      <section class="col">
-        <p class="col-section extra">— On This Day —</p>
-        <h2 class="col-headline" style="font-size: 22px; line-height: 1; margin-bottom: 4px;">Today's Chairs</h2>
-        <p class="col-subhead" style="font-size: 12.5px; padding-bottom: 8px;">Thursday, 14 May. <em>Subject to change.</em></p>
+      <!-- Cream wall behind -->
+      <rect width="480" height="240" fill="#ECE5D7"/>
+      <!-- Floor -->
+      <rect y="240" width="480" height="80" fill="url(#floor)"/>
+      <!-- Floor band -->
+      <line x1="0" y1="240" x2="480" y2="240" stroke="#B8956C" stroke-width="1"/>
+      <line x1="0" y1="246" x2="480" y2="246" stroke="#B8956C" stroke-width="0.4" opacity="0.7"/>
 
-        <ul class="chairs-list" aria-label="Today's available chairs">
-          <li><span class="time">08.00</span><span class="barber">J. Aitken</span></li>
-          <li><span class="time">08.30</span><span class="barber">K. Aitken</span></li>
-          <li><span class="time">09.00</span><span class="barber">L. Carrigan</span></li>
-          <li><span class="time">09.30</span><span class="taken">Taken</span></li>
-          <li><span class="time">10.00</span><span class="barber">D. Brennan</span></li>
-          <li><span class="time">10.30</span><span class="taken">Taken</span></li>
-          <li><span class="time">11.00</span><span class="barber">F. Whyte</span></li>
-          <li><span class="time">14.00</span><span class="barber extra-tag">Walk-in</span></li>
-          <li><span class="time">14.30</span><span class="taken">Taken</span></li>
-          <li><span class="time">15.00</span><span class="barber">L. Carrigan</span></li>
-        </ul>
+      <!-- Mirror behind chair -->
+      <ellipse cx="240" cy="124" rx="118" ry="98" fill="#ECE5D7" stroke="#B8956C" stroke-width="2.5"/>
+      <ellipse cx="240" cy="124" rx="106" ry="86" fill="none" stroke="#B8956C" stroke-width="0.8" opacity="0.6"/>
+      <!-- Mirror reflection (faint room hint) -->
+      <g opacity="0.18">
+        <line x1="160" y1="86" x2="320" y2="86" stroke="#3A2415" stroke-width="0.6"/>
+        <line x1="160" y1="120" x2="320" y2="120" stroke="#3A2415" stroke-width="0.6"/>
+        <line x1="160" y1="154" x2="320" y2="154" stroke="#3A2415" stroke-width="0.6"/>
+      </g>
 
-        <p class="walkin-note">Hours after 4pm telegraph the booking office <span class="italic" style="white-space:nowrap;">(see overleaf)</span>. Walk-in chairs are received as space permits; no chair is hurried.</p>
+      <!-- Mirror brass cap -->
+      <rect x="232" y="20" width="16" height="10" fill="url(#brass-grad)"/>
 
-        <div class="sponsor">
-          <p class="head">— Advertisement —</p>
-          <p class="body">Drygate Plasterworks<span>Plasterers, est. 1898 · Glasgow</span></p>
-        </div>
-      </section>
+      <!-- Chair base / pedestal -->
+      <ellipse cx="240" cy="290" rx="76" ry="10" fill="#1A0E08" opacity="0.4"/>
+      <rect x="216" y="240" width="48" height="50" fill="#3A2415" stroke="#1A0E08" stroke-width="1"/>
+      <!-- Pedestal pole -->
+      <rect x="232" y="218" width="16" height="22" fill="url(#brass-grad)"/>
+      <!-- Footrest -->
+      <rect x="190" y="232" width="100" height="6" fill="url(#brass-grad)"/>
+      <line x1="200" y1="238" x2="200" y2="252" stroke="#8B6E4E" stroke-width="1.2"/>
+      <line x1="280" y1="238" x2="280" y2="252" stroke="#8B6E4E" stroke-width="1.2"/>
 
-      <!-- Column 2 — Lead article -->
-      <section class="col">
-        <p class="col-section">— Trade —</p>
-        <h2 class="col-headline">A Quiet Work Continues in the Trongate</h2>
-        <p class="col-subhead">The Barber Co. enters its eighth year of trade, with six chairs operating daily and the same unfashionable principle: every cut deserves the time it requires.</p>
+      <!-- Chair seat (chesterfield buttoned leather) -->
+      <rect x="174" y="190" width="132" height="32" rx="4" fill="url(#leather)" stroke="#4A1212" stroke-width="0.8"/>
+      <rect x="174" y="190" width="132" height="32" rx="4" fill="url(#tuft)"/>
+      <!-- Seat front edge -->
+      <rect x="172" y="218" width="136" height="6" rx="2" fill="#4A1212"/>
 
-        <div class="body-just dropcap">
-          <p>The Trongate Barber Co., established at the foot of the Tron eight years past, continues quietly to serve the men of Glasgow's east end with the care of an older trade. Six chairs operate daily; bookings are taken by telegraph; walk-ins received with civility.</p>
-          <p>The shop, under the direction of L. Carrigan and a roster of four floor-coaches, has built its custom on the unfashionable principle that every cut deserves the time it requires. No appointment is hurried, no client rebuffed at the door for want of a booking — the chair is held, where space permits, against the next available barber.</p>
-          <p>Members of the ladies' auxiliary occasionally enquire after our hours; we welcome all who would sit in the chair, and the rates are advertised in the menu adjacent. The premises are open six days, with Sunday by telegraphed appointment only — a small concession to those who must shave on a weekend.</p>
-        </div>
-      </section>
+      <!-- Chair backrest (tall, button-tufted) -->
+      <path d="M174 190 L174 110 Q174 96 188 96 L292 96 Q306 96 306 110 L306 190 Z"
+            fill="url(#leather-back)" stroke="#4A1212" stroke-width="0.8"/>
+      <path d="M174 190 L174 110 Q174 96 188 96 L292 96 Q306 96 306 110 L306 190 Z"
+            fill="url(#tuft)"/>
 
-      <!-- Column 3 — Menu (classified-style) -->
-      <section class="col menu-block">
-        <p class="col-section">— Rates &amp; Services —</p>
-        <h2 class="col-headline">The Gentleman's Menu</h2>
-        <p class="menu-sub">As advertised, May the fourteenth, MMXXVI</p>
+      <!-- Headrest -->
+      <ellipse cx="240" cy="92" rx="38" ry="10" fill="url(#leather)" stroke="#4A1212" stroke-width="0.8"/>
+      <ellipse cx="240" cy="92" rx="38" ry="10" fill="url(#tuft)" opacity="0.6"/>
 
-        <ul class="menu-list">
-          <li>
-            <span class="name">Skin Fade</span>
-            <span class="leader" aria-hidden="true"></span>
-            <span class="price">£18.00</span>
-          </li>
-          <li>
-            <span class="name">Gentleman's Cut</span>
-            <span class="leader" aria-hidden="true"></span>
-            <span class="price">£16.00</span>
-          </li>
-          <li>
-            <span class="name">Beard Sculpt</span>
-            <span class="leader" aria-hidden="true"></span>
-            <span class="price">£10.00</span>
-          </li>
-          <li>
-            <span class="name">Hot Towel Shave</span>
-            <span class="leader" aria-hidden="true"></span>
-            <span class="price">£25.00</span>
-          </li>
-          <li>
-            <span class="name">Cut &amp; Beard, complete</span>
-            <span class="leader" aria-hidden="true"></span>
-            <span class="price">£26.00</span>
-          </li>
-          <li>
-            <span class="name">Father &amp; Son <span class="duration">— two chairs</span></span>
-            <span class="leader" aria-hidden="true"></span>
-            <span class="price">£24.00</span>
-          </li>
-        </ul>
+      <!-- Chair arms — chrome / brass -->
+      <rect x="158" y="180" width="24" height="14" rx="6" fill="url(#brass-grad)"/>
+      <rect x="298" y="180" width="24" height="14" rx="6" fill="url(#brass-grad)"/>
+      <!-- Arm details -->
+      <circle cx="170" cy="186" r="2.5" fill="#8B6E4E"/>
+      <circle cx="310" cy="186" r="2.5" fill="#8B6E4E"/>
 
-        <p class="menu-terms">Terms · Cards &amp; cash. No appointment fee. Cancellations welcomed by telegraph up to two hours prior to the chair.</p>
-      </section>
+      <!-- Cabinetry left -->
+      <rect x="20" y="160" width="80" height="80" fill="#3A2415" stroke="#281810" stroke-width="0.8"/>
+      <rect x="28" y="168" width="64" height="64" fill="none" stroke="#B8956C" stroke-width="0.6"/>
+      <!-- Bottle silhouettes -->
+      <rect x="38" y="180" width="10" height="32" fill="#4A1212" stroke="#B8956C" stroke-width="0.4"/>
+      <rect x="52" y="184" width="9" height="28" fill="#3A2415" stroke="#B8956C" stroke-width="0.4"/>
+      <rect x="65" y="178" width="11" height="34" fill="#1F2A38" stroke="#B8956C" stroke-width="0.4"/>
+      <rect x="80" y="186" width="8" height="26" fill="#3A2415" stroke="#B8956C" stroke-width="0.4"/>
 
-      <!-- Column 4 — Proprietor's note -->
-      <section class="col">
-        <p class="col-section extra">— Proprietor's Note —</p>
-        <h2 class="col-headline" style="font-size: 22px; line-height: 1.0; margin-bottom: 14px;"><em>To Our Readership.</em></h2>
+      <!-- Cabinetry right -->
+      <rect x="380" y="160" width="80" height="80" fill="#3A2415" stroke="#281810" stroke-width="0.8"/>
+      <rect x="388" y="168" width="64" height="64" fill="none" stroke="#B8956C" stroke-width="0.6"/>
+      <rect x="396" y="180" width="9" height="32" fill="#4A1212" stroke="#B8956C" stroke-width="0.4"/>
+      <rect x="409" y="186" width="10" height="26" fill="#1F2A38" stroke="#B8956C" stroke-width="0.4"/>
+      <rect x="423" y="180" width="9" height="32" fill="#3A2415" stroke="#B8956C" stroke-width="0.4"/>
+      <rect x="436" y="184" width="10" height="28" fill="#4A1212" stroke="#B8956C" stroke-width="0.4"/>
 
-        <div class="proprietor">
-          <p>In this our eighth year of trade we offer you the same service as on the day we opened — a chair in the Trongate, a clean razor, and the time it takes to do the work properly.</p>
-          <p>Send a telegraph to the booking office at any hour; we shall reply in kind. Walk in, where you have a moment between errands; we shall hold the chair where we can.</p>
-          <p>To the regulars who have sat with us since '18: thank you. To those new to the chair: welcome.</p>
+      <!-- Sconce light glow (warm) -->
+      <circle cx="60" cy="70" r="22" fill="#B8956C" opacity="0.18"/>
+      <circle cx="420" cy="70" r="22" fill="#B8956C" opacity="0.18"/>
 
-          <div class="signoff">
-            L. Carrigan
-            <small>Proprietor</small>
-          </div>
-        </div>
-      </section>
+      <!-- Wall plaque -->
+      <rect x="218" y="250" width="44" height="14" fill="url(#brass-grad)" opacity="0.3"/>
+    </svg>
 
-    </article>
+    <h1 class="hero-name">
+      Trongate <em>Barber Co.</em>
+      <span class="small">Established MMXVIII · Glasgow</span>
+    </h1>
 
-    <!-- ═══════════════ PAGE BREAK ═══════════════ -->
-    <div class="page-break">
-      <span class="num">— Continued on Page 2 —</span>
-      <span class="ornament">❦</span>
+    <p class="hero-tagline">
+      Six chairs at the foot of the Tron — open six days, Sunday by appointment, the chair held until you've sat down.
+    </p>
+
+    <div class="hero-meta">
+      <span>★ ★ ★ ★ ★</span>
+      <span class="sep">·</span>
+      <span>1,200+ Cuts Yearly</span>
+      <span class="sep">·</span>
+      <span>Live Booking via Nearcut</span>
     </div>
 
-    <!-- ═══════════════ PAGE 2 — TELEGRAPH (BOOKING) ═══════════════ -->
-    <section class="page-booking" id="book">
+    <a href="#book" class="hero-cta">
+      Book a Chair
+      <span class="arrow"></span>
+    </a>
+  </div>
+</section>
 
-      <div class="booking-prose">
-        <p class="col-section">— The Booking Office —</p>
-        <h2 class="booking-h">A Telegraph<br>to the <em>Chair.</em></h2>
-        <p class="booking-sub">Bookings are received by Nearcut, the system used in-shop. The wires receive your message instantly; the chair is held the moment the office confirms.</p>
+<!-- ═══════════════ ABOUT (DARK) ═══════════════ -->
+<section class="dark-section" id="about">
+  <div class="about-grid">
+    <div class="about-art reveal">
+      <!-- Decorative composition: barber pole + a framed shop sign -->
+      <svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg" aria-label="Shop sign with a barber pole">
+        <defs>
+          <linearGradient id="brass2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#8B6E4E"/>
+            <stop offset="50%" stop-color="#D4B689"/>
+            <stop offset="100%" stop-color="#8B6E4E"/>
+          </linearGradient>
+          <linearGradient id="sign-bg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3A2415"/>
+            <stop offset="100%" stop-color="#1A0E08"/>
+          </linearGradient>
+        </defs>
 
-        <div class="body-just">
-          <p>For more than a century the Trongate has done its business by telegraph; we continue the practice, in a modern hand. Every booking made through the office below appears on the same calendar our barbers consult before the first cut of the morning — there is no second-hand list, no message held in the post.</p>
-          <p>Should the wire be down, walk in. Should the chair be full, leave your name. Should the day be Sunday, send word the night before — we shall meet you at the door if your business requires it.</p>
-        </div>
-      </div>
+        <!-- Barber pole on left -->
+        <rect x="60" y="70" width="32" height="14" fill="url(#brass2)"/>
+        <rect x="60" y="386" width="32" height="14" fill="url(#brass2)"/>
+        <rect x="64" y="84" width="24" height="302" fill="#ECE5D7"/>
+        <!-- Inner pole stripes (decorative — the spinning effect would be in CSS but
+             this is a static illustration. The HOMEPAGE pole element above does spin.) -->
+        <g clip-path="inset(84px 312px 84px 64px)">
+          <g>
+            <polygon points="64,90 88,84 88,98 64,104" fill="#6B1F1A"/>
+            <polygon points="64,108 88,102 88,116 64,122" fill="#1F4A6B"/>
+            <polygon points="64,126 88,120 88,134 64,140" fill="#6B1F1A"/>
+            <polygon points="64,144 88,138 88,152 64,158" fill="#1F4A6B"/>
+            <polygon points="64,162 88,156 88,170 64,176" fill="#6B1F1A"/>
+            <polygon points="64,180 88,174 88,188 64,194" fill="#1F4A6B"/>
+            <polygon points="64,198 88,192 88,206 64,212" fill="#6B1F1A"/>
+            <polygon points="64,216 88,210 88,224 64,230" fill="#1F4A6B"/>
+            <polygon points="64,234 88,228 88,242 64,248" fill="#6B1F1A"/>
+            <polygon points="64,252 88,246 88,260 64,266" fill="#1F4A6B"/>
+            <polygon points="64,270 88,264 88,278 64,284" fill="#6B1F1A"/>
+            <polygon points="64,288 88,282 88,296 64,302" fill="#1F4A6B"/>
+            <polygon points="64,306 88,300 88,314 64,320" fill="#6B1F1A"/>
+            <polygon points="64,324 88,318 88,332 64,338" fill="#1F4A6B"/>
+            <polygon points="64,342 88,336 88,350 64,356" fill="#6B1F1A"/>
+            <polygon points="64,360 88,354 88,368 64,374" fill="#1F4A6B"/>
+          </g>
+        </g>
 
-      <aside class="telegraph" aria-label="Telegraph form to the booking office">
-        <div class="telegraph-head">
-          <span class="extra">Western Union of Glasgow</span>
-          <span>Booking Office · Form B-14</span>
-        </div>
-        <div class="telegraph-row">
-          <span class="k">To</span>
-          <span class="v">Trongate Barber Co.</span>
-        </div>
-        <div class="telegraph-row">
-          <span class="k">From</span>
-          <span class="v dim">[your name and number]</span>
-        </div>
-        <div class="telegraph-row">
-          <span class="k">Re</span>
-          <span class="v">Chair, Thursday p.m. <span class="stop">STOP</span></span>
-        </div>
-        <div class="telegraph-row">
-          <span class="k">Service</span>
-          <span class="v">Skin fade <span class="stop">STOP</span></span>
-        </div>
-        <div class="telegraph-row">
-          <span class="k">Time</span>
-          <span class="v dim">[earliest available — confirm in reply]</span>
-        </div>
-        <div class="telegraph-row">
-          <span class="k">Sent at</span>
-          <span class="v">14 May 2026 · 09.42 <span class="stop">STOP STOP</span></span>
-        </div>
+        <!-- Cap top -->
+        <ellipse cx="76" cy="70" rx="20" ry="6" fill="#D4B689"/>
+        <!-- Cap bottom -->
+        <ellipse cx="76" cy="400" rx="20" ry="6" fill="#D4B689"/>
 
-        <a href="https://nearcut.com/en-GB/" target="_blank" rel="noopener" class="telegraph-cta">
-          Send the Telegraph<span class="arrow"> →</span>
-        </a>
+        <!-- Shop sign -->
+        <rect x="140" y="120" width="220" height="240" fill="url(#sign-bg)" stroke="#B8956C" stroke-width="2"/>
+        <rect x="148" y="128" width="204" height="224" fill="none" stroke="#B8956C" stroke-width="0.6"/>
+        <text x="250" y="180" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="500" font-size="24" fill="#D4B689" text-anchor="middle">— since —</text>
+        <text x="250" y="244" font-family="Cormorant Garamond, serif" font-weight="500" font-size="76" fill="#ECE5D7" text-anchor="middle" letter-spacing="2">2018</text>
+        <text x="250" y="284" font-family="Cormorant Garamond, serif" font-weight="500" font-size="20" fill="#D4B689" text-anchor="middle" letter-spacing="6">TRONGATE</text>
+        <text x="250" y="306" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="500" font-size="14" fill="#B8956C" text-anchor="middle">— Glasgow G1 —</text>
 
-        <p class="telegraph-foot">The wire is operated by Nearcut. Opens in a new window.</p>
-      </aside>
+        <!-- Decorative flourish -->
+        <g stroke="#B8956C" stroke-width="0.8" fill="none" opacity="0.7">
+          <line x1="170" y1="324" x2="330" y2="324"/>
+          <circle cx="250" cy="324" r="2" fill="#B8956C"/>
+        </g>
 
-    </section>
-
-    <!-- ═══════════════ PAGE BREAK ═══════════════ -->
-    <div class="page-break">
-      <span class="num">— Page 3 · Hours &amp; Directory —</span>
-      <span class="ornament">❦</span>
+        <!-- Hanging brass chains -->
+        <line x1="180" y1="120" x2="180" y2="80" stroke="#B8956C" stroke-width="1"/>
+        <line x1="320" y1="120" x2="320" y2="80" stroke="#B8956C" stroke-width="1"/>
+        <circle cx="180" cy="78" r="3" fill="#D4B689"/>
+        <circle cx="320" cy="78" r="3" fill="#D4B689"/>
+      </svg>
     </div>
 
-    <!-- ═══════════════ PAGE 3 — HOURS / DIRECTORY ═══════════════ -->
-    <section class="page-hours">
+    <div class="about-text reveal">
+      <div class="eyebrow-row"><span class="rule"></span><span class="label">The Shop</span></div>
+      <h2>The chair, <em>since 2018.</em></h2>
+      <p class="lede">Eight years at the foot of the Tron. Six chairs. Six barbers. One philosophy: every cut gets the time the cut needs — no rush at the back of the queue, no cut shortened to make a slot.</p>
+      <p class="lede">We trade walk-ins fast and bookings to the dot, but never the finish for either. Skin fades, hot-towel shaves, beard work, gentleman's cuts — done with the patience of an older trade and the standards of a newer one.</p>
 
-      <div class="hours-block">
-        <h2 class="col-headline" style="font-size: clamp(22px, 2.6vw, 32px);">Office Hours</h2>
-        <p class="col-subhead">As maintained by the Proprietor, MMXXVI</p>
+      <div class="signature">
+        L. Carrigan
+        <small>Proprietor · Trongate, Glasgow</small>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <ul class="hours-list">
-          <li><span class="day">Monday</span><span class="open">09.00</span><span class="close">— 18.00</span></li>
-          <li><span class="day">Tuesday</span><span class="open">09.00</span><span class="close">— 18.00</span></li>
-          <li><span class="day">Wednesday</span><span class="open">09.00</span><span class="close">— 18.00</span></li>
-          <li class="row-today"><span class="day">Thursday <em style="font-style:italic;font-family:var(--body);font-weight:400;font-size:12px;letter-spacing:0.04em;text-transform:none;">— this day</em></span><span class="open">09.00</span><span class="close">— 19.00</span></li>
-          <li><span class="day">Friday</span><span class="open">09.00</span><span class="close">— 19.00</span></li>
-          <li><span class="day">Saturday</span><span class="open">08.00</span><span class="close">— 17.00</span></li>
-          <li><span class="day">Sunday</span><span class="by-app">By appointment, telegraph required</span></li>
-        </ul>
+<!-- ═══════════════ SERVICES ═══════════════ -->
+<section class="services" id="services">
+  <div class="services-head reveal">
+    <div class="eyebrow-row"><span class="rule"></span><span class="label label-ink">The Menu</span><span class="rule"></span></div>
+    <h2>House <em>Services.</em></h2>
+    <p class="lede">Six services, every one priced clearly. No upsells at the chair, no hidden card surcharge.</p>
+  </div>
+
+  <div class="menu-plate reveal" role="region" aria-label="Service menu">
+    <span class="menu-plate-corner tl" aria-hidden="true"></span>
+    <span class="menu-plate-corner tr" aria-hidden="true"></span>
+    <span class="menu-plate-corner bl" aria-hidden="true"></span>
+    <span class="menu-plate-corner br" aria-hidden="true"></span>
+
+    <h3 class="menu-plate-title">Trongate Barber Co.<em>— Rates &amp; Services —</em></h3>
+
+    <ul class="menu-list">
+      <li>
+        <span class="name">Skin Fade <span class="duration">— 30 min</span></span>
+        <span class="leader" aria-hidden="true"></span>
+        <span class="price">£18</span>
+      </li>
+      <li>
+        <span class="name">Gentleman's Cut <span class="duration">— 30 min</span></span>
+        <span class="leader" aria-hidden="true"></span>
+        <span class="price">£16</span>
+      </li>
+      <li>
+        <span class="name">Beard Sculpt <span class="duration">— 20 min</span></span>
+        <span class="leader" aria-hidden="true"></span>
+        <span class="price">£10</span>
+      </li>
+      <li>
+        <span class="name">Hot Towel Shave <span class="duration">— 30 min</span></span>
+        <span class="leader" aria-hidden="true"></span>
+        <span class="price">£25</span>
+      </li>
+      <li>
+        <span class="name">Cut &amp; Beard, complete <span class="duration">— 45 min</span></span>
+        <span class="leader" aria-hidden="true"></span>
+        <span class="price">£26</span>
+      </li>
+      <li>
+        <span class="name">Father &amp; Son <span class="duration">— two chairs, 45 min</span></span>
+        <span class="leader" aria-hidden="true"></span>
+        <span class="price">£24</span>
+      </li>
+    </ul>
+
+    <p class="menu-foot">Cards &amp; cash · No appointment fee · Cancellations welcomed up to two hours before the chair</p>
+  </div>
+</section>
+
+<!-- ═══════════════ BOOKING ═══════════════ -->
+<section class="booking" id="book">
+  <div class="booking-grid">
+
+    <div class="booking-prose reveal">
+      <div class="eyebrow-row"><span class="rule"></span><span class="label">Live Booking</span></div>
+      <h2>The <em>Appointment</em><br>Book.</h2>
+      <p class="lede">Live availability, kept on the same calendar our barbers consult before the first cut of the morning. No second-hand list, no message held in the post.</p>
+      <p class="lede">Sundays by appointment only — book the night before to be sure of a chair.</p>
+    </div>
+
+    <aside class="appointment-book reveal" aria-label="Today's appointment book">
+      <div class="book-header">
+        <span class="name">Today · Thursday</span>
+        <span class="date">14 May 2026</span>
       </div>
 
-      <aside class="directory">
-        <span class="directory-tag">Directory</span>
-        <h3 class="directory-name">Trongate Barber Co.</h3>
-        <p class="directory-line">A modern shop on Glasgow's oldest crossroads — eight chairs, six barbers, no rush.</p>
-        <div class="directory-meta">
+      <ul class="book-rows">
+        <li><span class="time">08.00</span><span class="barber">J. Aitken</span><span class="stat open">Open</span></li>
+        <li><span class="time">08.30</span><span class="barber">K. Aitken</span><span class="stat open">Open</span></li>
+        <li><span class="time">09.00</span><span class="barber">L. Carrigan</span><span class="stat open">Open</span></li>
+        <li><span class="time">09.30</span><span class="barber taken">— held —</span><span class="stat held">Held</span></li>
+        <li><span class="time">10.00</span><span class="barber">D. Brennan</span><span class="stat open">Open</span></li>
+        <li><span class="time">10.30</span><span class="barber taken">— held —</span><span class="stat held">Held</span></li>
+        <li><span class="time">11.00</span><span class="barber">F. Whyte</span><span class="stat open">Open</span></li>
+        <li><span class="time">14.00</span><span class="barber">L. Carrigan</span><span class="stat open">Open</span></li>
+        <li><span class="time">15.00</span><span class="barber">J. Aitken</span><span class="stat open">Open</span></li>
+      </ul>
+
+      <a href="https://nearcut.com/en-GB/" target="_blank" rel="noopener" class="book-cta">Book at Nearcut →</a>
+
+      <p class="book-foot">Booking by <span class="nc">Nearcut</span> — opens in a new window</p>
+    </aside>
+
+  </div>
+</section>
+
+<!-- ═══════════════ HOURS / DIRECTORY ═══════════════ -->
+<section class="visit" id="visit">
+  <div class="visit-grid">
+
+    <div class="reveal">
+      <div class="eyebrow-row"><span class="rule"></span><span class="label label-ink">Hours</span></div>
+      <h2>Open six days,<br><em>Sunday by appointment.</em></h2>
+      <p class="lede">Doors open early through to evening. Sunday slots booked the night before.</p>
+
+      <div class="hours-plate">
+        <p class="head">— Office Hours · MMXXVI —</p>
+        <ul>
+          <li><span class="day">Monday</span><span class="time">09.00 — 18.00</span></li>
+          <li><span class="day">Tuesday</span><span class="time">09.00 — 18.00</span></li>
+          <li><span class="day">Wednesday</span><span class="time">09.00 — 18.00</span></li>
+          <li class="row-today"><span class="day">Thursday <em style="font-style:italic;font-family:var(--display);font-weight:400;font-size:13px;letter-spacing:0;">— today</em></span><span class="time">09.00 — 19.00</span></li>
+          <li><span class="day">Friday</span><span class="time">09.00 — 19.00</span></li>
+          <li><span class="day">Saturday</span><span class="time">08.00 — 17.00</span></li>
+          <li><span class="day">Sunday</span><span class="time by-app">By appointment</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="eyebrow-row"><span class="rule"></span><span class="label label-ink">Directory</span></div>
+      <h2>Find <em>the shop.</em></h2>
+      <p class="lede">A modern shop on Glasgow's oldest crossroads — eight chairs, six barbers, no rush.</p>
+
+      <div class="directory-plate" style="margin-top:28px;">
+        <span class="tag">Directory</span>
+        <h3 class="name">Trongate Barber Co.</h3>
+        <p class="line">A modern shop on Glasgow's oldest crossroads — eight chairs, six barbers, no rush.</p>
+        <div class="meta">
           <div><span class="k">Premises</span><span class="v">Trongate, Glasgow G1</span></div>
-          <div><span class="k">Booking</span><span class="v">Nearcut · By telegraph</span></div>
+          <div><span class="k">Booking</span><span class="v">Live · Nearcut</span></div>
           <div><span class="k">Walk-ins</span><span class="v">Welcome</span></div>
           <div><span class="k">Tender</span><span class="v">Card &amp; cash</span></div>
-          <div><span class="k">Established</span><span class="v">MMXVIII</span></div>
         </div>
-      </aside>
-
-    </section>
-
-    <!-- ═══════════════ PAGE BREAK ═══════════════ -->
-    <div class="page-break">
-      <span class="num">— Page 4 · From the Guest Book —</span>
-      <span class="ornament">❦</span>
-    </div>
-
-    <!-- ═══════════════ PAGE 4 — LETTER TO THE EDITOR ═══════════════ -->
-    <section class="letter-page">
-      <div class="letter-frame">
-        <p class="letter-tag">Letter to the editor <span class="extra">— from a regular customer</span></p>
-        <p class="letter-text">
-          <span class="open">Sir —</span>May I commend the work of your barbers in the Trongate, particularly Mr Carrigan, whose attention to a fade I could find nowhere else in this city? Worth, as the saying has it, every penny.
-        </p>
-        <p class="letter-sign">
-          Yours faithfully,<br>
-          <strong>A Regular Customer · Bridgeton</strong>
-        </p>
-      </div>
-    </section>
-
-    <!-- Fleuron divider -->
-    <div class="fleuron-row" aria-hidden="true">
-      ❦  ❦  ❦
-    </div>
-
-    <!-- ═══════════════ TRADING TICKER ═══════════════ -->
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span><span class="extra">Trading Prices · H&amp;B</span></span>
-        <span>Skin Fade <span class="extra">£18.00</span></span><span class="sep">·</span>
-        <span>Gentleman's Cut <span class="extra">£16.00</span></span><span class="sep">·</span>
-        <span>Beard Sculpt <span class="extra">£10.00</span></span><span class="sep">·</span>
-        <span>Hot Towel Shave <span class="extra">£25.00</span></span><span class="sep">·</span>
-        <span>Cut &amp; Beard <span class="extra">£26.00</span></span><span class="sep">·</span>
-        <span>Father &amp; Son <span class="extra">£24.00</span></span><span class="sep">·</span>
-        <span>Walk-ins <span class="extra">Welcome</span></span><span class="sep">·</span>
-        <!-- Duplicate for seamless loop -->
-        <span><span class="extra">Trading Prices · H&amp;B</span></span>
-        <span>Skin Fade <span class="extra">£18.00</span></span><span class="sep">·</span>
-        <span>Gentleman's Cut <span class="extra">£16.00</span></span><span class="sep">·</span>
-        <span>Beard Sculpt <span class="extra">£10.00</span></span><span class="sep">·</span>
-        <span>Hot Towel Shave <span class="extra">£25.00</span></span><span class="sep">·</span>
-        <span>Cut &amp; Beard <span class="extra">£26.00</span></span><span class="sep">·</span>
-        <span>Father &amp; Son <span class="extra">£24.00</span></span><span class="sep">·</span>
-        <span>Walk-ins <span class="extra">Welcome</span></span><span class="sep">·</span>
       </div>
     </div>
 
-    <!-- ═══════════════ COLOPHON / DISCLAIMER ═══════════════ -->
-    <footer class="colophon">
-      <p class="label">— Colophon —</p>
-      <p class="credits">Set in DM Serif Display, Newsreader, and Special Elite. Printed at Trongate, Glasgow. <span class="italic">Subscriptions free; chairs are not. No issue published without inspection of the previous day's work.</span></p>
-      <p class="disclaimer">
-        Portfolio demo by GrantOps Consulting — no real business sits at this address. View our work at <a href="https://grantopsconsulting.com/" rel="noopener">grantopsconsulting.com</a>.
-      </p>
-    </footer>
+  </div>
+</section>
 
-  </div><!-- /.sheet -->
-</div><!-- /.paper -->
+<!-- ═══════════════ TESTIMONIAL ═══════════════ -->
+<section class="testimonial">
+  <div class="testimonial-inner reveal">
+    <div class="testimonial-mark" aria-hidden="true">"</div>
+    <p class="testimonial-text">
+      Best fade in Glasgow's east end — and the only barbershop where I can actually book the time I want, on the day I want it. <em>Worth every penny.</em>
+    </p>
+    <p class="testimonial-meta">
+      <span class="name">A Regular Customer</span>
+      <span class="sep">✦</span>
+      <span>Bridgeton, Glasgow</span>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="footer-top">
+    <span class="wordmark">
+      <svg class="crest" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <ellipse cx="24" cy="24" rx="20" ry="22" stroke="#B8956C" stroke-width="1.4"/>
+        <line x1="14" y1="14" x2="34" y2="34" stroke="#ECE5D7" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="34" y1="14" x2="14" y2="34" stroke="#6B1F1A" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="14" cy="14" r="2" fill="#B8956C"/>
+        <circle cx="34" cy="34" r="2" fill="#B8956C"/>
+      </svg>
+      <span class="text">
+        <span class="name">Trongate Barber Co.</span>
+        <span class="sub">Glasgow · Est. MMXVIII</span>
+      </span>
+    </span>
+    <div class="footer-meta">
+      <span>© 2026 Trongate Barber Co.</span>
+      <span class="sep">·</span>
+      <span>Glasgow</span>
+      <span class="sep">·</span>
+      <span class="tag">G1</span>
+    </div>
+  </div>
+  <p class="disclaimer">
+    Portfolio demo by GrantOps Consulting — no real business sits at this address. View our work at <a href="https://grantopsconsulting.com/" rel="noopener">grantopsconsulting.com</a>.
+  </p>
+</footer>
 
 <script>
   (function () {
-    /* Minimal JS — newspapers don't need much.
-       Just protect against the ticker stalling on tab background and ensure
-       reduced-motion preference holds. Everything else is CSS. */
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('.ticker-track').forEach(function (t) {
-        t.style.animation = 'none';
-      });
+    var topbar = document.getElementById('topbar');
+    var ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          if (window.scrollY > 24) topbar.classList.add('lit');
+          else topbar.classList.remove('lit');
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (r) { io.observe(r); });
+    } else {
+      reveals.forEach(function (r) { r.classList.add('in'); });
     }
   })();
 </script>
