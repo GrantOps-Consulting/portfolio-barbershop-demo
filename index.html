@@ -159,8 +159,12 @@ h3 { font-size: clamp(22px, 2.6vw, 32px); }
 .status-bar .right { color: var(--brass); }
 .status-bar .sep { color: var(--ink-3); }
 @media (max-width: 720px) {
-  .status-bar { font-size: 9px; letter-spacing: 0.14em; padding: 7px 16px; }
+  .status-bar { font-size: 9px; letter-spacing: 0.12em; padding: 7px 14px; gap: 8px; }
   .status-bar .right { display: none; }
+  /* Drop the separator dots + the trailing two phrases ("Walk-ins Welcome" / "Live Booking")
+     so the status bar stays single-line and doesn't wrap into the topbar on narrow screens. */
+  .status-bar .left .sep,
+  .status-bar .left > span:nth-child(n+4) { display: none; }
 }
 
 /* ──────────── TOPBAR (different architecture from Drygate v1) ──────────── */
@@ -184,7 +188,7 @@ h3 { font-size: clamp(22px, 2.6vw, 32px); }
   background: rgba(236, 229, 215, 0.98);
 }
 @media (max-width: 720px) {
-  .topbar { top: 28px; }
+  .topbar { top: 32px; }
 }
 
 .topbar .brand {
