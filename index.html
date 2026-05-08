@@ -11,7 +11,7 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://grantopsconsulting.com/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio demo concept — an Americana-leaning Glasgow barbershop with live Nearcut booking.">
+  <meta name="description" content="Portfolio demo concept — an Americana-leaning Glasgow barbershop with live booking.">
   <meta name="theme-color" content="#1A1410">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ECE5D7'/%3E%3Cellipse cx='16' cy='4' rx='6' ry='2' fill='%23999'/%3E%3Crect x='10' y='4' width='12' height='4' fill='%23BBB'/%3E%3Crect x='11' y='8' width='10' height='16' fill='white' stroke='%23888' stroke-width='0.4'/%3E%3Cpath d='M11 11 L21 8 L21 11 L11 14 Z M11 16 L21 13 L21 16 L11 19 Z M11 21 L21 18 L21 21 L11 24 Z' fill='%23C8211C'/%3E%3Crect x='10' y='24' width='12' height='4' fill='%23BBB'/%3E%3Cellipse cx='16' cy='28' rx='6' ry='2' fill='%23999'/%3E%3C/svg%3E">
 
@@ -521,17 +521,25 @@ h3 { font-size: clamp(22px, 2.6vw, 32px); }
   padding-top: 2vh;
 }
 
-.hero-pole-stack {
-  display: flex; flex-direction: column; align-items: center;
-  margin-bottom: 28px;
-}
-.hero-pole-label {
+.hero-emblem {
+  display: inline-flex; align-items: center; gap: 18px;
+  margin-bottom: 30px;
   font-family: var(--mono);
   font-size: 10.5px;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--brass-bright);
-  margin-top: 22px;
+}
+.hero-emblem .rule {
+  display: inline-block;
+  width: clamp(28px, 4vw, 44px);
+  height: 1px;
+  background: var(--brass);
+}
+.hero-emblem .star { color: var(--brass-bright); font-size: 12px; line-height: 1; }
+@media (max-width: 540px) {
+  .hero-emblem { gap: 12px; font-size: 9.5px; letter-spacing: 0.3em; }
+  .hero-emblem .rule { width: 22px; }
 }
 
 .hero-name {
@@ -625,16 +633,16 @@ h3 { font-size: clamp(22px, 2.6vw, 32px); }
 .btn-ghost:hover { border-color: var(--paper); background: rgba(236,229,215,0.1); }
 
 /* Hero load-stagger */
-.hero-pole-stack, .hero-name, .hero-tagline, .hero-meta, .hero-cta-row {
+.hero-emblem, .hero-name, .hero-tagline, .hero-meta, .hero-cta-row {
   opacity: 0;
   transform: translateY(14px);
   animation: fade-up 0.95s var(--ease) forwards;
 }
-.hero-pole-stack { animation-delay: 0.1s; }
-.hero-name       { animation-delay: 0.28s; }
-.hero-tagline    { animation-delay: 0.44s; }
-.hero-meta       { animation-delay: 0.58s; }
-.hero-cta-row    { animation-delay: 0.7s; }
+.hero-emblem    { animation-delay: 0.1s; }
+.hero-name      { animation-delay: 0.28s; }
+.hero-tagline   { animation-delay: 0.44s; }
+.hero-meta      { animation-delay: 0.58s; }
+.hero-cta-row   { animation-delay: 0.7s; }
 @keyframes fade-up { to { opacity: 1; transform: translateY(0); } }
 
 /* Hero split layout (tweak) */
@@ -648,18 +656,18 @@ h3 { font-size: clamp(22px, 2.6vw, 32px); }
   gap: 60px;
 }
 [data-hero-layout="split"] .hero-text { display: contents; }
-[data-hero-layout="split"] .hero-pole-stack { grid-column: 2; grid-row: 1 / span 5; align-self: center; align-items: center; }
-[data-hero-layout="split"] .hero-name { grid-column: 1; grid-row: 1; text-align: left; }
-[data-hero-layout="split"] .hero-tagline { grid-column: 1; grid-row: 2; text-align: left; }
-[data-hero-layout="split"] .hero-meta { grid-column: 1; grid-row: 3; justify-content: flex-start; }
-[data-hero-layout="split"] .hero-cta-row { grid-column: 1; grid-row: 4; }
+[data-hero-layout="split"] .hero-emblem { grid-column: 1; grid-row: 1; justify-self: start; margin-bottom: 18px; }
+[data-hero-layout="split"] .hero-name { grid-column: 1; grid-row: 2; text-align: left; }
+[data-hero-layout="split"] .hero-tagline { grid-column: 1; grid-row: 3; text-align: left; }
+[data-hero-layout="split"] .hero-meta { grid-column: 1; grid-row: 4; justify-content: flex-start; }
+[data-hero-layout="split"] .hero-cta-row { grid-column: 1; grid-row: 5; }
 @media (max-width: 900px) {
   [data-hero-layout="split"] .hero-inner { grid-template-columns: 1fr; text-align: center; align-items: center; }
-  [data-hero-layout="split"] .hero-pole-stack,
+  [data-hero-layout="split"] .hero-emblem,
   [data-hero-layout="split"] .hero-name,
   [data-hero-layout="split"] .hero-tagline,
   [data-hero-layout="split"] .hero-meta,
-  [data-hero-layout="split"] .hero-cta-row { grid-column: 1; grid-row: auto; text-align: center; justify-content: center; align-items: center; }
+  [data-hero-layout="split"] .hero-cta-row { grid-column: 1; grid-row: auto; text-align: center; justify-content: center; align-items: center; justify-self: center; }
 }
 
 /* ───────────────────────── REVEAL ON SCROLL ───────────────────────── */
@@ -675,34 +683,54 @@ section {
 .reveal.in { opacity: 1; transform: translateY(0); }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .hero-pole-stack, .hero-name, .hero-tagline, .hero-meta, .hero-cta-row { opacity: 1; transform: none; animation: none; }
+  .hero-emblem, .hero-name, .hero-tagline, .hero-meta, .hero-cta-row { opacity: 1; transform: none; animation: none; }
 }
 
-/* ───────────────────────── POLE STRIP ───────────────────────── */
+/* ───────────────────────── POLE STRIP ─────────────────────────
+   The vertical poles that used to flank the quote are gone — the section now
+   reads as a framed pull-quote, with full-width red/white/blue stripe ribbons
+   serving as the section dividers. The ribbons preserve the Americana barber
+   pole DNA without trying to fake the helical-spin illusion at this scale. */
 .pole-strip {
   background: var(--paper);
-  padding: 64px var(--gutter);
-  border-top: 1px solid var(--brass);
-  border-bottom: 1px solid var(--brass);
-  display: flex; flex-direction: column; align-items: center;
-  gap: 20px;
-  text-align: center;
   position: relative;
+  display: flex; flex-direction: column;
 }
-.pole-strip::before, .pole-strip::after {
-  content: ''; position: absolute; left: 0; right: 0; height: 1px;
-  background: var(--brass-deep); opacity: 0.4;
+.pole-strip-ribbon {
+  height: 14px;
+  background-image: repeating-linear-gradient(
+    -65deg,
+    var(--pole-cream) 0px, var(--pole-cream) 10px,
+    var(--pole-red)   10px, var(--pole-red)  20px,
+    var(--pole-cream) 20px, var(--pole-cream) 30px,
+    var(--pole-blue)  30px, var(--pole-blue)  40px
+  );
+  border-top: 1px solid var(--chrome-deep);
+  border-bottom: 1px solid var(--chrome-deep);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18),
+              inset 0 -1px 0 rgba(0,0,0,0.12);
 }
-.pole-strip::before { top: 8px; }
-.pole-strip::after  { bottom: 8px; }
-.pole-strip-poles { display: flex; align-items: center; gap: clamp(60px, 12vw, 160px); }
+.pole-strip-inner {
+  padding: clamp(54px, 8vw, 92px) var(--gutter);
+  display: flex; flex-direction: column; align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.pole-strip-mark {
+  color: var(--cordovan);
+  font-size: 18px;
+  letter-spacing: 0.4em;
+  display: inline-flex;
+  gap: 14px;
+  margin-bottom: 4px;
+}
 .pole-strip-quote {
   font-family: var(--display);
   font-weight: 500;
-  font-size: clamp(20px, 2.6vw, 32px);
+  font-size: clamp(22px, 3vw, 38px);
   color: var(--ink);
-  max-width: 28ch;
-  line-height: 1.25;
+  max-width: 32ch;
+  line-height: 1.22;
 }
 .pole-strip-attr {
   font-family: var(--mono);
@@ -1407,7 +1435,6 @@ section {
   color: var(--ink-3);
   text-align: center;
 }
-.booker-foot .nc { font-family: var(--accent); font-style: italic; text-transform: none; letter-spacing: 0.04em; color: var(--cordovan); font-size: 12px; }
 
 .booker-success {
   text-align: center;
@@ -2007,13 +2034,12 @@ section {
       <div class="hero-grain" aria-hidden="true"></div>
 
       <div class="hero-inner">
-        <div class="hero-pole-stack">
-          <span class="pole pole-xl" aria-hidden="true">
-            <span class="pole-cap"></span>
-            <span class="pole-cyl"></span>
-            <span class="pole-cap bottom"></span>
-          </span>
-          <span class="hero-pole-label">— Est. MMXVIII —</span>
+        <div class="hero-emblem">
+          <span class="rule" aria-hidden="true"></span>
+          <span class="star" aria-hidden="true">✦</span>
+          <span>Est. MMXVIII</span>
+          <span class="star" aria-hidden="true">✦</span>
+          <span class="rule" aria-hidden="true"></span>
         </div>
 
         <h1 class="hero-name">
@@ -2028,7 +2054,7 @@ section {
           <span class="sep" aria-hidden="true">·</span>
           <span>1,200+ Cuts Yearly</span>
           <span class="sep" aria-hidden="true">·</span>
-          <span>Live Booking · Nearcut</span>
+          <span>Live Booking</span>
         </div>
 
         <div class="hero-cta-row">
@@ -2040,22 +2066,17 @@ section {
 
     <!-- ───────────────────────── POLE STRIP ───────────────────────── -->
     <div class="pole-strip" data-screen-label="02 Pole Strip">
-      <div class="pole-strip-poles" aria-hidden="true">
-        <span class="pole pole-md">
-          <span class="pole-cap"></span>
-          <span class="pole-cyl"></span>
-          <span class="pole-cap bottom"></span>
-        </span>
-        <span class="pole pole-md">
-          <span class="pole-cap"></span>
-          <span class="pole-cyl"></span>
-          <span class="pole-cap bottom"></span>
-        </span>
+      <div class="pole-strip-ribbon" aria-hidden="true"></div>
+      <div class="pole-strip-inner">
+        <div class="pole-strip-mark" aria-hidden="true">
+          <span>✦</span><span>✦</span><span>✦</span>
+        </div>
+        <div class="pole-strip-quote">
+          A clean razor, <span class="script">a hot towel,</span> and the time it takes.
+        </div>
+        <div class="pole-strip-attr">— House motto · 2018 —</div>
       </div>
-      <div class="pole-strip-quote">
-        A clean razor, <span class="script">a hot towel,</span> and the time it takes.
-      </div>
-      <div class="pole-strip-attr">— House motto · 2018 —</div>
+      <div class="pole-strip-ribbon" aria-hidden="true"></div>
     </div>
 
     <!-- ───────────────────────── ABOUT / THE SHOP ───────────────────────── -->
@@ -2273,7 +2294,7 @@ section {
             <li>Reference number sent the moment you confirm</li>
             <li>Reschedule or cancel up to two hours before</li>
             <li>Sundays by appointment only</li>
-            <li>Powered by Nearcut · synced with the shop floor</li>
+            <li>Live availability · synced with the shop floor</li>
           </ul>
         </div>
 
@@ -2363,7 +2384,7 @@ section {
 
             <div class="meta">
               <div><span class="k">Premises</span><span class="v">Trongate, Glasgow G1</span></div>
-              <div><span class="k">Booking</span><span class="v">Live · Nearcut</span></div>
+              <div><span class="k">Booking</span><span class="v">Live, in-page</span></div>
               <div><span class="k">Walk-ins</span><span class="v">Welcome</span></div>
               <div><span class="k">Tender</span><span class="v">Card &amp; cash</span></div>
             </div>
@@ -2962,7 +2983,7 @@ section {
       ]);
       host.appendChild(actions);
 
-      host.appendChild(el('p', { class: 'booker-foot', html: 'Powered by <span class="nc">Nearcut</span> · synced with the shop floor' }));
+      host.appendChild(el('p', { class: 'booker-foot', text: 'Live availability · synced with the shop floor' }));
     }
 
     function canNext() {
