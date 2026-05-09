@@ -1992,7 +1992,7 @@ section {
   <div class="status-bar" role="contentinfo">
     <span class="left">
       <span class="live-dot" aria-hidden="true"></span>
-      <span>Open Today · 09:00 — 19:00</span>
+      <span id="sb-today">Open Today</span>
       <span class="sep" aria-hidden="true">·</span>
       <span>Walk-ins Welcome</span>
       <span class="sep" aria-hidden="true">·</span>
@@ -2360,7 +2360,7 @@ section {
               <li><span class="day">Monday</span><span class="time">09.00 — 18.00</span></li>
               <li><span class="day">Tuesday</span><span class="time">09.00 — 18.00</span></li>
               <li><span class="day">Wednesday</span><span class="time">09.00 — 18.00</span></li>
-              <li class="row-today"><span class="day">Thursday <em>— today</em></span><span class="time">09.00 — 19.00</span></li>
+              <li><span class="day">Thursday</span><span class="time">09.00 — 19.00</span></li>
               <li><span class="day">Friday</span><span class="time">09.00 — 19.00</span></li>
               <li><span class="day">Saturday</span><span class="time">08.00 — 17.00</span></li>
               <li><span class="day">Sunday</span><span class="time by-app">By appointment</span></li>
@@ -2769,10 +2769,51 @@ section {
       });
     }
 
+    // ─────────────── HOURS / TODAY MARKERS ───────────────
+    // Single source of truth for shop hours, used by the status bar and the
+    // hours-plate row highlight. Keep in sync with the static <ul> rows in
+    // the visit section if either is edited.
+    var SHOP_HOURS = {
+      0: null,             // Sun — by appointment
+      1: '09:00 — 18:00',  // Mon
+      2: '09:00 — 18:00',  // Tue
+      3: '09:00 — 18:00',  // Wed
+      4: '09:00 — 19:00',  // Thu
+      5: '09:00 — 19:00',  // Fri
+      6: '08:00 — 17:00'   // Sat
+    };
+
+    function applyTodayMarkers() {
+      var dow = new Date().getDay(); // 0=Sun … 6=Sat
+
+      var sb = document.getElementById('sb-today');
+      if (sb) {
+        sb.textContent = dow === 0
+          ? 'Sunday · By Appointment'
+          : 'Open Today · ' + SHOP_HOURS[dow];
+      }
+
+      // Hours plate rows are listed Mon→Sun; map dow→row index.
+      var rowIdx = dow === 0 ? 6 : dow - 1;
+      var rows = document.querySelectorAll('.hours-plate ul li');
+      var todayRow = rows[rowIdx];
+      if (todayRow) {
+        todayRow.classList.add('row-today');
+        var dayCell = todayRow.querySelector('.day');
+        if (dayCell && !dayCell.querySelector('em')) {
+          dayCell.appendChild(document.createTextNode(' '));
+          var em = document.createElement('em');
+          em.textContent = '— today';
+          dayCell.appendChild(em);
+        }
+      }
+    }
+
     // ─────────────── BOOKER ───────────────
 
     function makeDays() {
-      var seed = new Date(2026, 4, 14);
+      var seed = new Date();
+      seed.setHours(0, 0, 0, 0);
       var weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       var month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
       var days = [];
@@ -2836,7 +2877,7 @@ section {
       }
 
       var head = el('div', { class: 'booker-head' }, [
-        el('div', { class: 'title', html: 'Book a Chair<em>Today · Thu 14 May 2026</em>' }),
+        el('div', { class: 'title', html: 'Book a Chair<em>Today · ' + s.days[0].full + '</em>' }),
         el('span', { class: 'badge', text: 'Live · 6 chairs open' })
       ]);
       host.appendChild(head);
@@ -3258,6 +3299,7 @@ section {
     // ─────────────── BOOT ───────────────
 
     function boot() {
+      applyTodayMarkers();
       renderProducts();
       renderBooker();
       setupReveal();
